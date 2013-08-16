@@ -1,0 +1,48 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+PortGroup           python 1.0
+
+name                frescobaldi
+version             2.0.10
+categories          editors python
+maintainers         gmail.com:davide.liessi openmaintainer
+description         A LilyPond sheet music text editor
+long_description    Frescobaldi is a LilyPond sheet music text editor. \
+                    It aims to be powerful, yet lightweight and easy to use.
+homepage            http://www.frescobaldi.org/
+platforms           darwin
+supported_archs     noarch
+license             GPL-2+
+
+master_sites        googlecode:lilykde
+
+checksums           rmd160  8d83dfd2a9b2720089e8e09ab2ec56205f76593c \
+                    sha256  b30808a2377836b5fb6269c5fd61cd9e52bdfd49c1923c562adc79b9f97c80e5
+
+build {}
+
+depends_run-append  port:portmidi
+
+variant python26 description {Use python 2.6} {
+    python.default_version  26
+    depends_run-append      port:py${python.default_version}-pyqt4 \
+                            port:py${python.default_version}-python-poppler-qt4
+}
+variant python27 description {Use python 2.7} {
+    python.default_version  27
+    depends_run-append      port:py${python.default_version}-pyqt4 \
+                            port:py${python.default_version}-python-poppler-qt4
+}
+if {![variant_isset python26]} {
+    default_variants        +python27
+}
+
+notes \
+"You may want to install fluidsynth and obtain a SoundFont
+in order to have audio output from frescobaldi's MIDI output.
+
+You will need to select fluidsynth's MIDI input port
+in frescobaldi's MIDI settings (in Preferences)
+while fluidsynth is running."
