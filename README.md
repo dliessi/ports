@@ -8,6 +8,7 @@ Contents
 -----
 
 * frescobaldi @2.0.10
+* frescobaldi-devel @20130818
 * py-python-poppler-qt4 @0.16.3
 
 
