@@ -4,9 +4,10 @@
 PortSystem          1.0
 PortGroup           python 1.0
 
-name                frescobaldi
-conflicts           frescobaldi-devel
-version             2.0.10
+name                frescobaldi-devel
+conflicts           frescobaldi
+version             20130818
+set git_branch      a140ef46fba00d6389ba17ffb759e38663edb19c
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
@@ -17,10 +18,9 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-master_sites        googlecode:lilykde
-
-checksums           rmd160  8d83dfd2a9b2720089e8e09ab2ec56205f76593c \
-                    sha256  b30808a2377836b5fb6269c5fd61cd9e52bdfd49c1923c562adc79b9f97c80e5
+fetch.type          git
+git.url             https://github.com/wbsoft/frescobaldi.git
+git.branch          ${git_branch}
 
 build {}
 
