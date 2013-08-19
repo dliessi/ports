@@ -8,8 +8,8 @@ Contents
 -----
 
 * [frescobaldi](http://www.frescobaldi.org/) @2.0.10
-* [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.16.3
 * frescobaldi-devel @20130818
+* [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.16.3
 
 
 Usage
@@ -25,4 +25,4 @@ If you want to use this repository, you may
 Now you should be able to use the Portfiles provided in this repository.
 
 **N.B.** py-python-poppler-qt4 depends on poppler with variants qt4 and quartz.
-You should `port install poppler +qt4 +quartz` before installing frescobaldi.
+You should `port install poppler +qt4 +quartz` before installing frescobaldi or frescobaldi-devel.
