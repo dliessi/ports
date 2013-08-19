@@ -9,6 +9,7 @@ Contents
 
 * [frescobaldi](http://www.frescobaldi.org/) @2.0.10
 * [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.16.3
+* frescobaldi-devel @20130818
 
 
 Usage
