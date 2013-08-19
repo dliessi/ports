@@ -35,6 +35,8 @@ Here is what changes with respect to [Frescobaldi Mac OS X install guide](https:
 
 ### [Installing Frescobaldi and dependencies](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#installing-frescobaldi-and-dependencies)
 
+This part reduces to just what follows.
+
 * Update MacPorts with `sudo port selfupdate` or update just the Portfiles with `sudo port sync`.
 * Upgrade your ports with `sudo port upgrade outdated`.
 * `sudo port install poppler +quartz + qt4 frescobaldi` or `sudo port install poppler +quartz + qt4 frescobaldi-devel`.
@@ -43,7 +45,7 @@ frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`.
 
 ### [Creating a launcher](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#creating-a-launcher)
 
-I never used Platypus so I cannot advise on this, but I think that it should work the same if you simply substitute the script with the following one.
+I never used Platypus so I cannot advise on this, but I think that it should work the same if you substitute the script with the following one.
 ```
 #!/bin/sh
 /opt/local/bin/python2.7 /opt/local/bin/frescobaldi-2.7
@@ -55,5 +57,5 @@ The only difference here is that you do not need to install portmidi, since it i
 
 ### [Upgrading to a new version of Frescobaldi](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#upgrading-to-a-new-version-of-frescobaldi)
 
-I should keep reasonably up to date these Portfiles, so when there is something new you should just need to pull/fetch the repository or download the ZIP file and perform [step 3](https://github.com/dliessi/ports/edit/master/README.md#usage).
+I should keep these Portfiles reasonably up to date, so when there is something new you should just need to pull/fetch the repository or download the ZIP file, perform [step 3](https://github.com/dliessi/ports/edit/master/README.md#usage) and `sudo port upgrade outdated`.
 If time passes and I do not upgrade the Portfiles, please open a new issue [here on GitHub](https://github.com/dliessi/ports/issues).
