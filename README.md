@@ -57,5 +57,5 @@ The only difference here is that you do not need to install portmidi, since it i
 
 ### [Upgrading to a new version of Frescobaldi](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#upgrading-to-a-new-version-of-frescobaldi)
 
-I should keep these Portfiles reasonably up to date, so when there is something new you should just need to pull/fetch the repository or download the ZIP file, perform [step 3](https://github.com/dliessi/ports/edit/master/README.md#usage) and `sudo port upgrade outdated`.
+I should keep these Portfiles reasonably up to date, so when there is something new you should just need to pull/fetch the repository or download the ZIP file, perform [step 3](https://github.com/dliessi/ports#usage) and `sudo port upgrade outdated`.
 If time passes and I do not upgrade the Portfiles, please open a new issue [here on GitHub](https://github.com/dliessi/ports/issues).
