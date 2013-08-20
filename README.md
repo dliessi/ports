@@ -39,7 +39,8 @@ This part reduces to just what follows.
 
 * Update MacPorts with `sudo port selfupdate` or update just the Portfiles with `sudo port sync`.
 * Upgrade your ports with `sudo port upgrade outdated`.
-* `sudo port install poppler +quartz + qt4 frescobaldi` or `sudo port install poppler +quartz + qt4 frescobaldi-devel`.
+* `sudo port install poppler +quartz +qt4`.
+* `sudo port install frescobaldi` or `sudo port install frescobaldi-devel`.
 
 frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`.
 
