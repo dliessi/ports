@@ -8,6 +8,7 @@ PortGroup               active_variants 1.1
 set original_name       python-poppler-qt4
 name                    py-${original_name}
 version                 0.16.3
+revision                1
 python.versions         26 27
 python.default_version  27
 maintainers             gmail.com:davide.liessi openmaintainer
