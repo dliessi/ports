@@ -7,6 +7,7 @@ PortGroup           python 1.0
 name                frescobaldi-devel
 conflicts           frescobaldi
 version             20130823
+revision            1
 set git_branch      1b1cf505b6db21f1d80dd49c43321ca848074dc9
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
