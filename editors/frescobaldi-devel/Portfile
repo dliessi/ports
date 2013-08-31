@@ -40,6 +40,59 @@ if {![variant_isset python26]} {
     default_variants        +python27
 }
 
+variant app description {Make application bundle} {
+    depends_build-append    port:py${python.default_version}-cx_Freeze
+    
+    post-destroot {
+        set app_bundle      ${worksrcpath}/Frescobaldi.app
+        set app_contents    ${app_bundle}/Contents
+        set app_macos       ${app_contents}/MacOS
+        set app_resources   ${app_contents}/Resources
+        
+        file mkdir ${app_macos}
+        file mkdir ${app_resources}
+        
+        set infoplist \
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.frescobaldi.frescobaldi</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleExecutable</key>
+	<string>Frescobaldi</string>
+	<key>CFBundleDisplayName</key>
+	<string>Frescobaldi</string>
+	<key>CFBundleVersion</key>
+	<string>${version}</string>
+	<key>CFBundleName</key>
+	<string>Frescobaldi</string>
+	<key>CFBundleIconFile</key>
+	<string>frescobaldi.icns</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2008-2012 Wilbert Berendsen.</string>
+</dict>
+</plist>
+"
+        set fileID [ open "${app_contents}/Info.plist" "w" ]
+        puts -nonewline ${fileID} ${infoplist}
+        close ${fileID}
+        
+        exec ${prefix}/bin/cxfreeze-${python.branch} \
+            ${destroot}${frameworks_dir}/Python.framework/Versions/${python.branch}/bin/frescobaldi \
+            --target-dir ${app_macos} --no-copy-deps --target-name Frescobaldi
+        
+        file copy ${filespath}/frescobaldi.icns ${app_resources}
+        
+        file mkdir ${destroot}/Applications
+        file copy ${app_bundle} ${destroot}${applications_dir}       
+    }
+}
+
 notes \
 "You may want to install fluidsynth and obtain a SoundFont
 in order to have audio output from frescobaldi's MIDI output.
