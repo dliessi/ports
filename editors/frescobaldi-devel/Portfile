@@ -22,6 +22,8 @@ fetch.type          git
 git.url             https://github.com/wbsoft/frescobaldi.git
 git.branch          ${git_branch}
 
+patchfiles          patch-frescobaldi_app-scorewiz-__init__.py.patch
+
 build {}
 
 depends_run-append  port:portmidi
