@@ -1,0 +1,20 @@
+*** frescobaldi_app/hyphendialog.py.orig	2013-08-31 15:19:42.000000000 +0200
+--- frescobaldi_app/hyphendialog.py	2013-08-31 15:17:40.000000000 +0200
+*************** class HyphenDialog(QDialog):
+*** 127,133 ****
+              if lastused:
+                  yield lastused
+              try:
+!                 lang = locale.getdefaultlocale()[0]
+              except ValueError:
+                  pass
+              else:
+--- 127,134 ----
+              if lastused:
+                  yield lastused
+              try:
+!                 locale.setlocale(locale.LC_ALL, '')
+!                 lang = locale.getlocale()[0]
+              except ValueError:
+                  pass
+              else:
