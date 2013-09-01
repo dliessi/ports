@@ -3,6 +3,8 @@ dliessi/ports
 
 Personal MacPorts Portfile repository
 
+**N.B.** Branches other than `master` can be subject to **history rewriting**, so use them at your own risk.
+
 
 Contents
 -----
