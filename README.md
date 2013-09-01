@@ -27,7 +27,7 @@ Let's suppose that
 1. In the Terminal
 ```
 cd ~/github
-git clone git clone https://github.com/dliessi/ports.git
+git clone https://github.com/dliessi/ports.git
 ```
 As an alternative, if you don't have git installed, [download the ZIP file](https://github.com/dliessi/ports/archive/master.zip), expand it, rename the expanded directory to `ports` and move it in `~/github`.  
 
