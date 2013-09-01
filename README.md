@@ -15,14 +15,40 @@ Contents
 Usage
 -----
 
-If you want to use this repository, you may
+If you want to use this repository, you may clone it, insert its path in your MacPorts installation's `sources.conf` file and construct the port index in the repository's root directory.
 
-1. clone this repository (`git clone https://github.com/dliessi/ports.git`) or [download the ZIP file](https://github.com/dliessi/ports/archive/master.zip) and expand it;
-2. insert the line `file:///path/to/repository` (where `/path/to/repository` is the full path to the repository) in `/opt/local/etc/macports/sources.conf`;  
-(MacPorts finds Portfiles in the order specified in `sources.conf`, so you may want to insert the line before other repositories.)
-3. in Terminal, `cd` to the repository and execute `portindex`.
+Let's see an example of how to do this.
 
-Now you should be able to use the Portfiles provided in this repository.
+Let's suppose that
+* your username is `yourname`,
+* your home directory (`~`) is `/Users/yourname`, and
+* you have already created the directory `~/github` and you want my repository to be in the subdirectory `~/github/ports`.
+
+1. In the Terminal
+```
+cd ~/github
+git clone git clone https://github.com/dliessi/ports.git
+```
+As an alternative, if you don't have git installed, [download the ZIP file](https://github.com/dliessi/ports/archive/master.zip), expand it, rename the expanded directory to `ports` and move it in `~/github`.  
+
+2. Open the `sources.conf` file in your favorite text editor; I'll use nano as an example.  
+In the Terminal
+```
+sudo nano /opt/local/etc/macports/sources.conf
+```
+Go after the comment lines (those that begin with `#`) and before the line(s) that begin with `rsync://` and insert the line
+```
+file:///Users/yourname/github/ports/
+```
+Then save the file and exit the editor (if you use nano: ctrl-O to save, enter to confirm the file name, ctrl-X to exit).
+
+3. In the Terminal
+```
+cd ~/github/ports
+portindex
+```
+
+Now your MacPorts installation should be able to see my Portfiles.
 
 **N.B.** py-python-poppler-qt4, a dependency of frescobaldi(-devel) depends on poppler with variants qt4 and quartz.
 MacPorts cannot automatically install dependencies with variants other than the default ones, so you should `port install poppler +qt4 +quartz` before installing frescobaldi(-devel) or py-python-poppler-qt4.
