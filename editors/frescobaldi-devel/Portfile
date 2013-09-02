@@ -6,9 +6,8 @@ PortGroup           python 1.0
 
 name                frescobaldi-devel
 conflicts           frescobaldi
-version             20130823
-revision            1
-set git_branch      1b1cf505b6db21f1d80dd49c43321ca848074dc9
+version             20130902
+set git_branch      979b3e971a2e7acbe676af39b7ecb2a62dfe412c
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
@@ -22,8 +21,6 @@ license             GPL-2+
 fetch.type          git
 git.url             https://github.com/wbsoft/frescobaldi.git
 git.branch          ${git_branch}
-
-patchfiles          patch-frescobaldi_app-scorewiz-__init__.py.patch
 
 build {}
 
