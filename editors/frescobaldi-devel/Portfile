@@ -44,11 +44,7 @@ if {![variant_isset python26]} {
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-cx_Freeze
     
-    patchfiles-append       patch-frescobaldi_app-hyphendialog.py.patch \
-                            patch-frescobaldi_app-language_names-__init__.py.patch \
-                            patch-frescobaldi_app-lilydoc-network.py.patch \
-                            patch-frescobaldi_app-po-setup.py.patch \
-                            patch-frescobaldi_app-mainwindow.py.patch
+    patchfiles-append       patch-frescobaldi_app-mainwindow.py.patch
     
     post-destroot {
         set app_bundle      ${worksrcpath}/Frescobaldi.app
