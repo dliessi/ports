@@ -53,7 +53,21 @@ variant app description {Make application bundle} {
         set app_resources   ${app_contents}/Resources
         
         file mkdir ${app_macos}
-        file mkdir ${app_resources}
+        
+        set infopliststrings \
+"/* Localized versions of Info.plist keys */
+
+CFBundleName = \"Frescobaldi\";
+CFBundleDisplayName = \"Frescobaldi\";
+
+NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
+"
+        foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
+            file mkdir ${app_resources}/${l}.lproj
+            set fileID [ open "${app_resources}/${l}.lproj/InfoPlist.strings" "w" ]
+            puts -nonewline ${fileID} ${infopliststrings}
+            close ${fileID}
+        }
         
         set infoplist \
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
