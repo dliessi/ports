@@ -1,0 +1,36 @@
+*** frescobaldi_app/po/setup.py.orig	2013-09-05 15:05:02.000000000 +0200
+--- frescobaldi_app/po/setup.py	2013-09-05 15:07:38.000000000 +0200
+*************** from PyQt4.QtCore import QSettings, QTim
+*** 27,33 ****
+  
+  import app
+  
+! from . import find, install
+  from . import qtranslator
+  
+  
+--- 27,33 ----
+  
+  import app
+  
+! from . import find, install, defaultLanguageFromQLocale
+  from . import qtranslator
+  
+  
+*************** def current():
+*** 44,50 ****
+      language = QSettings().value("language", "", type(""))
+      if not language:
+          try:
+!             language = locale.getdefaultlocale()[0]
+          except ValueError:
+              pass
+      if not language:
+--- 44,50 ----
+      language = QSettings().value("language", "", type(""))
+      if not language:
+          try:
+!             language = defaultLanguageFromQLocale() or locale.getdefaultlocale()[0]
+          except ValueError:
+              pass
+      if not language:
