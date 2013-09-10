@@ -18,7 +18,7 @@ Available Portfiles
 -----
 
 * [frescobaldi](http://www.frescobaldi.org/) @2.0.10
-* frescobaldi-devel @20130902 (now includes a **clickable application bundle!**)
+* frescobaldi-devel @20130904 (now includes a **clickable application bundle!**)
 * [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.16.3
 
 

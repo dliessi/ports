@@ -6,9 +6,8 @@ PortGroup           python 1.0
 
 name                frescobaldi-devel
 conflicts           frescobaldi
-version             20130902
-revision            4
-set git_branch      979b3e971a2e7acbe676af39b7ecb2a62dfe412c
+version             20130904
+set git_branch      ee4d59ed976ff1dcac19d757da2afb347c02ffe2
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
