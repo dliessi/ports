@@ -1,0 +1,29 @@
+*** frescobaldi_app/language_names/__init__.py.orig	2013-09-05 15:05:02.000000000 +0200
+--- frescobaldi_app/language_names/__init__.py	2013-09-05 15:07:38.000000000 +0200
+*************** from __future__ import unicode_literals
+*** 19,24 ****
+--- 19,25 ----
+  import itertools
+  import locale
+  from .data import language_names
++ from po import defaultLanguageFromQLocale
+  
+  
+  __all__ = ['languageName']
+*************** def languageName(code, language=None):
+*** 33,39 ****
+      
+      """
+      if language is None:
+!         language = locale.getdefaultlocale()[0] or "C"
+          
+      for lang in (language, language.split('_')[0], "C"):
+          try:
+--- 34,40 ----
+      
+      """
+      if language is None:
+!         language = defaultLanguageFromQLocale() or locale.getdefaultlocale()[0] or "C"
+          
+      for lang in (language, language.split('_')[0], "C"):
+          try:

@@ -1,0 +1,19 @@
+*** frescobaldi_app/engrave/command.py.orig	2013-09-09 16:11:01.000000000 +0200
+--- frescobaldi_app/engrave/command.py	2013-09-09 16:11:42.000000000 +0200
+*************** def defaultJob(document, preview):
+*** 47,53 ****
+      i = info(document)
+      j = job.Job()
+      
+!     command = [i.command]
+      s = QSettings()
+      s.beginGroup("lilypond_settings")
+      if s.value("delete_intermediate_files", True, bool):
+--- 47,53 ----
+      i = info(document)
+      j = job.Job()
+      
+!     command = [i.abscommand()]
+      s = QSettings()
+      s.beginGroup("lilypond_settings")
+      if s.value("delete_intermediate_files", True, bool):

@@ -6,15 +6,23 @@ Personal MacPorts Portfile repository
 **N.B.** Branches other than `master` can be subject to **history rewriting**, so use them at your own risk.
 
 
-Contents
+Table of contents
+-----
+
+* [Available Portfiles](#available-portfiles)
+* [How to use this repository](#how-to-use-this-repository)
+* [How to install Frescobaldi](#how-to-install-frescobaldi)
+
+
+Available Portfiles
 -----
 
 * [frescobaldi](http://www.frescobaldi.org/) @2.0.10
-* frescobaldi-devel @20130902
+* frescobaldi-devel @20130902 (now includes a **clickable application bundle!**)
 * [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.16.3
 
 
-Usage
+How to use this repository
 -----
 
 If you want to use this repository, you may clone it, insert its path in your MacPorts installation's `sources.conf` file and construct the port index in the repository's root directory.
@@ -23,7 +31,8 @@ Let's see an example of how to do this.
 
 Let's suppose that
 * your username is `yourname`,
-* your home directory (`~`) is `/Users/yourname`, and
+* your home directory (`~`) is `/Users/yourname`,
+* you have a working [MacPorts installation](http://www.macports.org/install.php), and
 * you have already created the directory `~/github` and you want my repository to be in the subdirectory `~/github/ports`.
 
 1. In the Terminal
@@ -55,36 +64,35 @@ Now your MacPorts installation should be able to see my Portfiles.
 **N.B.** py-python-poppler-qt4, a dependency of frescobaldi(-devel) depends on poppler with variants qt4 and quartz.
 MacPorts cannot automatically install dependencies with variants other than the default ones, so you should `port install poppler +qt4 +quartz` before installing frescobaldi(-devel) or py-python-poppler-qt4.
 
+### Upgrade
 
-About [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide)
+I should keep these Portfiles reasonably up to date, so when there is something new you should just need to
+* `git pull` in the repository directory, if you initially used `git clone`, or  
+download the ZIP file and replace the content of the repository directory, if you initially downloaded the ZIP file,
+* perform step 3 (`portindex`), and
+* in the Terminal `sudo port upgrade outdated`.
+
+If time passes and I do not upgrade the Portfiles, please open a new issue [here on GitHub](https://github.com/dliessi/ports/issues).
+
+
+How to install Frescobaldi
 -----
 
-Here is what changes with respect to [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide) by Philippe Massart if you enable this repository in your MacPorts installation.
+### Install Frescobaldi
 
-### [Installing Frescobaldi and dependencies](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#installing-frescobaldi-and-dependencies)
+* Install [MacPorts](http://www.macports.org/install.php).
+* Prepare MacPorts to use this repository as described [above](#how-to-use-this-repository).
+* If you already had MacPorts installed, in the Terminal
+ + `sudo port selfupdate` to update MacPorts or `sudo port sync` to just update the Portfiles;
+ + `sudo port upgrade outdated` to upgrade your ports.
+* In the Terminal, `sudo port install poppler +quartz +qt4` to install poppler (dependency of py-python-poppler-qt4) with the correct variants.
+* In the Terminal,
+ + if you want latest stable version: `sudo port install frescobaldi`;
+ + if you want latest development version: `sudo port install frescobaldi-devel`;
+ + if you want a clickable application bundle: `sudo port install frescobaldi-devel +app`  
+(the application bundle is currently available only for frescobaldi-devel; when Frescobaldi 2.0.11 will be released, I'll setup also frescobaldi to build the application bundle).
+* frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`; the application bundle, if present, can be found at `/Applications/MacPorts/Frescobaldi.app`.
 
-This part reduces to just what follows.
+### MIDI output
 
-* Update MacPorts with `sudo port selfupdate` or update just the Portfiles with `sudo port sync`.
-* Upgrade your ports with `sudo port upgrade outdated`.
-* `sudo port install poppler +quartz +qt4`.
-* `sudo port install frescobaldi` or `sudo port install frescobaldi-devel`.
-
-frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`.
-
-### [Creating a launcher](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#creating-a-launcher)
-
-I never used Platypus so I cannot advise on this, but I think that it should work the same if you substitute the script with the following one.
-```
-#!/bin/sh
-/opt/local/bin/python2.7 /opt/local/bin/frescobaldi-2.7
-```
-
-### [MIDI output](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#midi-output)
-
-The only difference here is that you do not need to install portmidi, since it is automatically installed as a dependency of frescobaldi(-devel).
-
-### [Upgrading to a new version of Frescobaldi](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#upgrading-to-a-new-version-of-frescobaldi)
-
-I should keep these Portfiles reasonably up to date, so when there is something new you should just need to pull/fetch the repository or download the ZIP file, perform [step 3](https://github.com/dliessi/ports#usage) and `sudo port upgrade outdated`.
-If time passes and I do not upgrade the Portfiles, please open a new issue [here on GitHub](https://github.com/dliessi/ports/issues).
+Follow the [relevant section](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#midi-output) of Philippe Massart's [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide), with the only difference that you do not need to install portmidi, since it is automatically installed as a dependency of frescobaldi(-devel).
