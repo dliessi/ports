@@ -27,20 +27,16 @@ How to use this repository
 
 If you want to use this repository, you may clone it, insert its path in your MacPorts installation's `sources.conf` file and construct the port index in the repository's root directory.
 
-Let's see an example of how to do this.
+Here is what I recommend.
 
-Let's suppose that
-* your username is `yourname`,
-* your home directory (`~`) is `/Users/yourname`,
-* you have a working [MacPorts installation](http://www.macports.org/install.php), and
-* you have already created the directory `~/github` and you want my repository to be in the subdirectory `~/github/ports`.
+Let's assume that you have a working [MacPorts installation](http://www.macports.org/install.php) and that you have git installed (you can install it through MacPorts entering `sudo port install git-core` in the Terminal).
 
 1. In the Terminal
 ```
-cd ~/github
-git clone https://github.com/dliessi/ports.git
+sudo mkdir /opt/dliessi
+cd /opt/dliessi
+sudo git clone https://github.com/dliessi/ports.git
 ```
-As an alternative, if you don't have git installed, [download the ZIP file](https://github.com/dliessi/ports/archive/master.zip), expand it, rename the expanded directory to `ports` and move it in `~/github`.  
 
 2. Open the `sources.conf` file in your favorite text editor; I'll use nano as an example.  
 In the Terminal
@@ -49,14 +45,14 @@ sudo nano /opt/local/etc/macports/sources.conf
 ```
 Go after the comment lines (those that begin with `#`) and before the line(s) that begin with `rsync://` and insert the line
 ```
-file:///Users/yourname/github/ports/
+file:///opt/dliessi/ports/
 ```
 Then save the file and exit the editor (if you use nano: ctrl-O to save, enter to confirm the file name, ctrl-X to exit).
 
 3. In the Terminal
 ```
-cd ~/github/ports
-portindex
+cd /opt/dliessi/ports
+sudo portindex
 ```
 
 Now your MacPorts installation should be able to see my Portfiles.
@@ -67,10 +63,9 @@ MacPorts cannot automatically install dependencies with variants other than the 
 ### Upgrade
 
 I should keep these Portfiles reasonably up to date, so when there is something new you should just need to
-* `git pull` in the repository directory, if you initially used `git clone`, or  
-download the ZIP file and replace the content of the repository directory, if you initially downloaded the ZIP file,
-* perform step 3 (`portindex`), and
-* in the Terminal `sudo port upgrade outdated`.
+* `sudo git pull` in the repository directory,
+* perform step 3 (`sudo portindex`), and
+* `sudo port upgrade outdated`.
 
 If time passes and I do not upgrade the Portfiles, please open a new issue [here on GitHub](https://github.com/dliessi/ports/issues).
 
