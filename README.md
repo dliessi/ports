@@ -83,8 +83,8 @@ How to install Frescobaldi
 * Install [MacPorts](http://www.macports.org/install.php).
 * Prepare MacPorts to use this repository as described [above](#how-to-use-this-repository).
 * If you already had MacPorts installed, in the Terminal
- + issue `sudo port selfupdate` to update MacPorts or issue `sudo port sync` to just update the Portfiles;
- + issue `sudo port upgrade outdated` to upgrade your ports.
+ + `sudo port selfupdate` to update MacPorts or `sudo port sync` to just update the Portfiles;
+ + `sudo port upgrade outdated` to upgrade your ports.
 * In the Terminal, `sudo port install poppler +quartz +qt4` to install poppler (dependency of py-python-poppler-qt4) with the correct variants.
 * In the Terminal,
  + if you want latest stable version: `sudo port install frescobaldi`;
