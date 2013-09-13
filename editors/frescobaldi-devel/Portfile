@@ -6,8 +6,8 @@ PortGroup           python 1.0
 
 name                frescobaldi-devel
 conflicts           frescobaldi
-version             20130910
-set git_branch      3bee0b36978b1a8833dba469da46f9b59f593ca9
+version             20130912
+set git_branch      f21da27362c7d46a0490aedcc08a63812fea51d2
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
@@ -43,12 +43,7 @@ if {![variant_isset python26]} {
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-cx_Freeze
     
-    patchfiles-append       patch-frescobaldi_app-mainwindow.py.patch \
-                            patch-frescobaldi_app-hyphendialog.py.patch \
-                            patch-frescobaldi_app-language_names-__init__.py.patch \
-                            patch-frescobaldi_app-lilydoc-network.py.patch \
-                            patch-frescobaldi_app-po-__init__.py.patch \
-                            patch-frescobaldi_app-po-setup.py.patch
+    patchfiles-append       patch-frescobaldi_app-mainwindow.py.patch
     
     post-destroot {
         set app_bundle      ${worksrcpath}/Frescobaldi.app
