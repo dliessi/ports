@@ -41,9 +41,9 @@ if {![variant_isset python26]} {
 }
 
 notes \
-"You may want to install fluidsynth and obtain a SoundFont
-in order to have audio output from frescobaldi's MIDI output.
+"You may want to install FluidSynth and obtain a SoundFont
+in order to have audio output from Frescobaldi's MIDI output.
 
-You will need to select fluidsynth's MIDI input port
-in frescobaldi's MIDI settings (in Preferences)
-while fluidsynth is running."
+You will need to select FluidSynth's MIDI input port
+in Frescobaldi's MIDI settings (in Preferences)
+while FluidSynth is running."
