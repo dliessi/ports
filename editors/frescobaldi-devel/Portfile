@@ -4,8 +4,9 @@
 PortSystem          1.0
 PortGroup           python 1.0
 
-name                frescobaldi-devel
-conflicts           frescobaldi
+set original_name   frescobaldi
+name                ${original_name}-devel
+conflicts           ${original_name}
 version             20130912
 set git_branch      f21da27362c7d46a0490aedcc08a63812fea51d2
 categories          editors python
@@ -18,9 +19,15 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-fetch.type          git
-git.url             https://github.com/wbsoft/frescobaldi.git
-git.branch          ${git_branch}
+master_sites        https://github.com/wbsoft/${original_name}/archive/
+distfiles           ${git_branch}.zip
+
+checksums           rmd160  5b1e1973693d07690a72e123a8fec65627907747 \
+                    sha256  3fe09ada414f463a078cab51984f904534cff70b77b4e10380c2a40b6d918c6e
+
+worksrcdir          ${original_name}-${git_branch}
+
+use_zip             yes
 
 build {}
 
