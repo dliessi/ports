@@ -114,6 +114,8 @@ NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
     }
 }
 
+default_variants    +app
+
 notes \
 "You may want to install FluidSynth and obtain a SoundFont
 in order to have audio output from Frescobaldi's MIDI output.

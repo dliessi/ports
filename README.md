@@ -83,8 +83,7 @@ How to install Frescobaldi
 * In the Terminal, `sudo port install poppler +quartz +qt4` to install poppler (dependency of py-python-poppler-qt4) with the correct variants.
 * In the Terminal,
  + if you want latest stable version: `sudo port install frescobaldi`;
- + if you want latest development version: `sudo port install frescobaldi-devel`;
- + if you want a clickable application bundle: `sudo port install frescobaldi-devel +app`  
+ + if you want latest development version (including a clickable application bundle): `sudo port install frescobaldi-devel`  
 (the application bundle is currently available only for frescobaldi-devel; when Frescobaldi 2.0.11 will be released, I'll setup also frescobaldi to build the application bundle).
 * frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`; the application bundle, if present, can be found at `/Applications/MacPorts/Frescobaldi.app`.
 
