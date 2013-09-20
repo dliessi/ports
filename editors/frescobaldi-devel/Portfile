@@ -7,8 +7,8 @@ PortGroup           python 1.0
 set original_name   frescobaldi
 name                ${original_name}-devel
 conflicts           ${original_name}
-version             20130912
-set git_branch      f21da27362c7d46a0490aedcc08a63812fea51d2
+version             20130920
+set git_branch      eabc10bb52abd546ed0af54b148d7e55cdaf2cf7
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
@@ -22,8 +22,8 @@ license             GPL-2+
 master_sites        https://github.com/wbsoft/${original_name}/archive/
 distfiles           ${git_branch}.zip
 
-checksums           rmd160  5b1e1973693d07690a72e123a8fec65627907747 \
-                    sha256  3fe09ada414f463a078cab51984f904534cff70b77b4e10380c2a40b6d918c6e
+checksums           rmd160  0f7a4e291b2e74e676cccd454becac7f55abb565 \
+                    sha256  a2f5463ad73f9fc8647acbe81bb1c6edaa150d52040f01e8449bd5f69594c996
 
 worksrcdir          ${original_name}-${git_branch}
 
@@ -49,8 +49,6 @@ if {![variant_isset python26]} {
 
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-cx_Freeze
-    
-    patchfiles-append       patch-frescobaldi_app-mainwindow.py.patch
     
     post-destroot {
         set app_bundle      ${worksrcpath}/Frescobaldi.app
