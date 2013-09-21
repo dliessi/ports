@@ -87,6 +87,9 @@ How to install Frescobaldi
 (the application bundle is currently available only for frescobaldi-devel; when Frescobaldi 2.0.11 will be released, I'll setup also frescobaldi to build the application bundle).
 * frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`; the application bundle, if present, can be found at `/Applications/MacPorts/Frescobaldi.app`.
 
+**N.B.** If you had previously installed Frescobaldi following Philippe Massart's [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide), you may get an error about existing files not belonging to registered ports when MacPorts tries to activate py27-python-poppler-qt4 or frescobaldi(-devel).
+In order to solve this problem, launch the installation command again with the `-f` (force) option, i.e. `sudo port -f install frescobaldi(-devel)`.
+
 ### MIDI output
 
 Follow the [relevant section](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide#midi-output) of Philippe Massart's [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide), with the only difference that you do not need to install portmidi, since it is automatically installed as a dependency of frescobaldi(-devel).
