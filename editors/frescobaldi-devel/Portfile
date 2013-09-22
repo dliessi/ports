@@ -7,8 +7,8 @@ PortGroup           python 1.0
 set original_name   frescobaldi
 name                ${original_name}-devel
 conflicts           ${original_name}
-version             20130920
-set git_branch      eabc10bb52abd546ed0af54b148d7e55cdaf2cf7
+version             20130922
+set git_branch      a727279beedf24e6e3a56c1e8159c13db12cb848
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
@@ -22,8 +22,8 @@ license             GPL-2+
 master_sites        https://github.com/wbsoft/${original_name}/archive/
 distfiles           ${git_branch}.zip
 
-checksums           rmd160  016d82d8e98d6ef0c8583b710453f63ae25be4b5 \
-                    sha256  c590151fa626ed4aaff6646926d43b39ee32c23f75b141d1da7b2700dd8d27dd
+checksums           rmd160  349bfc5d98849cab8abd3537b24b542ad9063b77 \
+                    sha256  76a78d2c8eb038f79daaa131439330b9e2cb76e7cd476a27fb8dd1edca2be103
 
 worksrcdir          ${original_name}-${git_branch}
 
