@@ -33,12 +33,12 @@ build {}
 
 depends_run-append  port:portmidi
 
-variant python26 conflicts python27 description {Use python 2.6} {
+variant python26 conflicts python27 description {Use Python 2.6} {
     python.default_version  26
     depends_run-append      port:py${python.default_version}-pyqt4 \
                             port:py${python.default_version}-python-poppler-qt4
 }
-variant python27 conflicts python26 description {Use python 2.7} {
+variant python27 conflicts python26 description {Use Python 2.7} {
     python.default_version  27
     depends_run-append      port:py${python.default_version}-pyqt4 \
                             port:py${python.default_version}-python-poppler-qt4
