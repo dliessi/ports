@@ -49,8 +49,14 @@ if {![variant_isset python26]} {
 
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-cx_Freeze
+}
+
+post-destroot {
+    set man_dir ${destroot}${prefix}/share/man/man1
+    file mkdir ${man_dir}
+    file copy ${worksrcpath}/frescobaldi.1 ${man_dir}
     
-    post-destroot {
+    if {[variant_isset app]} {
         set app_bundle      ${worksrcpath}/Frescobaldi.app
         set app_contents    ${app_bundle}/Contents
         set app_macos       ${app_contents}/MacOS
