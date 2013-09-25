@@ -51,6 +51,8 @@ variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-cx_Freeze
 }
 
+default_variants    +app
+
 post-destroot {
     set man_dir ${destroot}${prefix}/share/man/man1
     file mkdir ${man_dir}
@@ -119,8 +121,6 @@ NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
         file copy ${app_bundle} ${destroot}${applications_dir}       
     }
 }
-
-default_variants    +app
 
 notes \
 "You may want to install FluidSynth and obtain a SoundFont
