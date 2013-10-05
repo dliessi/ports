@@ -3,11 +3,10 @@
 
 PortSystem          1.0
 PortGroup           python 1.0
+PortGroup           github 1.0
 
-set name_frescobaldi    frescobaldi
-name                ${name_frescobaldi}
-conflicts           ${name_frescobaldi}-devel
-version             2.0.10
+github.setup        wbsoft frescobaldi 2.0.10 v
+conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
@@ -18,10 +17,8 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-master_sites        googlecode:lilykde
-
-checksums           rmd160  8d83dfd2a9b2720089e8e09ab2ec56205f76593c \
-                    sha256  b30808a2377836b5fb6269c5fd61cd9e52bdfd49c1923c562adc79b9f97c80e5
+checksums           rmd160  197dc2ac14d6570fd2f5a9e04ea50a5a4a3e8b73 \
+                    sha256  1e8bfe2911057b066e5af54e685d786153956b436a8a6d6d50868c50c180049f
 
 build {}
 
@@ -50,20 +47,21 @@ in Frescobaldi's MIDI settings (in Preferences)
 while FluidSynth is running."
 
 
-subport ${name_frescobaldi}-devel {
-    conflicts           ${name_frescobaldi}
+subport frescobaldi-devel {
+    github.setup        wbsoft frescobaldi f57720d2c5de15bb8813e6977cde587326d9a43a
+    
+    # github.setup sets the port name and this interferes badly with subports
+    # (setting name to ${subport} doesn't work well)
+    # (see the definition of proc subport in portutil.tcl)
+    global PortInfo
+    set PortInfo(name) ${subport}
+    
+    conflicts           frescobaldi
     version             20131003
-    set git_branch      f57720d2c5de15bb8813e6977cde587326d9a43a
     
-    master_sites        https://github.com/wbsoft/${name_frescobaldi}/archive/
-    distfiles           ${git_branch}.zip
-    
-    checksums           rmd160  9495ff60dfbd2e0fb0fe5721682635ca1cd27419 \
-                        sha256  9de8f92150269e9303b1b4b05444964e0f3fe04380bb0eddd8c2d2f3e1073f9b
-    
-    worksrcdir          ${name_frescobaldi}-${git_branch}
-    use_zip             yes
-    
+    checksums           rmd160  52d3061b7cc2d25890e8daba690f8c5e739fd655 \
+                        sha256  3142529180c1ee38322972dfaa9b75188300570d376076895d14733abc033844
+
     variant app description {Make application bundle} {
         depends_build-append    port:py${python.default_version}-cx_Freeze
     }
@@ -73,7 +71,7 @@ subport ${name_frescobaldi}-devel {
 
 
 post-destroot {
-    if {${subport} ne ${name_frescobaldi}} {
+    if {${subport} ne "frescobaldi"} {
         set man_dir ${destroot}${prefix}/share/man/man1
         file mkdir ${man_dir}
         file copy ${worksrcpath}/frescobaldi.1 ${man_dir}
