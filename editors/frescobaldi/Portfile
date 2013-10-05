@@ -4,8 +4,9 @@
 PortSystem          1.0
 PortGroup           python 1.0
 
-name                frescobaldi
-conflicts           frescobaldi-devel
+set name_frescobaldi    frescobaldi
+name                ${name_frescobaldi}
+conflicts           ${name_frescobaldi}-devel
 version             2.0.10
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -26,12 +27,12 @@ build {}
 
 depends_run-append  port:portmidi
 
-variant python26 conflicts python27 description {Use python 2.6} {
+variant python26 conflicts python27 description {Use Python 2.6} {
     python.default_version  26
     depends_run-append      port:py${python.default_version}-pyqt4 \
                             port:py${python.default_version}-python-poppler-qt4
 }
-variant python27 conflicts python26 description {Use python 2.7} {
+variant python27 conflicts python26 description {Use Python 2.7} {
     python.default_version  27
     depends_run-append      port:py${python.default_version}-pyqt4 \
                             port:py${python.default_version}-python-poppler-qt4
@@ -47,3 +48,97 @@ in order to have audio output from Frescobaldi's MIDI output.
 You will need to select FluidSynth's MIDI input port
 in Frescobaldi's MIDI settings (in Preferences)
 while FluidSynth is running."
+
+
+subport ${name_frescobaldi}-devel {
+    conflicts           ${name_frescobaldi}
+    version             20131003
+    set git_branch      f57720d2c5de15bb8813e6977cde587326d9a43a
+    
+    master_sites        https://github.com/wbsoft/${name_frescobaldi}/archive/
+    distfiles           ${git_branch}.zip
+    
+    checksums           rmd160  9495ff60dfbd2e0fb0fe5721682635ca1cd27419 \
+                        sha256  9de8f92150269e9303b1b4b05444964e0f3fe04380bb0eddd8c2d2f3e1073f9b
+    
+    worksrcdir          ${name_frescobaldi}-${git_branch}
+    use_zip             yes
+    
+    variant app description {Make application bundle} {
+        depends_build-append    port:py${python.default_version}-cx_Freeze
+    }
+    
+    default_variants    +app
+}
+
+
+post-destroot {
+    if {${subport} ne ${name_frescobaldi}} {
+        set man_dir ${destroot}${prefix}/share/man/man1
+        file mkdir ${man_dir}
+        file copy ${worksrcpath}/frescobaldi.1 ${man_dir}
+    }
+
+    if {[variant_isset app]} {
+        set app_bundle      ${worksrcpath}/Frescobaldi.app
+        set app_contents    ${app_bundle}/Contents
+        set app_macos       ${app_contents}/MacOS
+        set app_resources   ${app_contents}/Resources
+    
+        file mkdir ${app_macos}
+    
+        set infopliststrings \
+"/* Localized versions of Info.plist keys */
+
+CFBundleName = \"Frescobaldi\";
+CFBundleDisplayName = \"Frescobaldi\";
+
+NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
+"
+        foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
+            file mkdir ${app_resources}/${l}.lproj
+            set fileID [ open "${app_resources}/${l}.lproj/InfoPlist.strings" "w" ]
+            puts -nonewline ${fileID} ${infopliststrings}
+            close ${fileID}
+        }
+    
+        set infoplist \
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleIdentifier</key>
+    <string>org.frescobaldi.frescobaldi</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleExecutable</key>
+    <string>Frescobaldi</string>
+    <key>CFBundleDisplayName</key>
+    <string>Frescobaldi</string>
+    <key>CFBundleVersion</key>
+    <string>${version}</string>
+    <key>CFBundleName</key>
+    <string>Frescobaldi</string>
+    <key>CFBundleIconFile</key>
+    <string>frescobaldi.icns</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2008-2012 Wilbert Berendsen.</string>
+</dict>
+</plist>
+"
+        set fileID [ open "${app_contents}/Info.plist" "w" ]
+        puts -nonewline ${fileID} ${infoplist}
+        close ${fileID}
+    
+        exec ${prefix}/bin/cxfreeze-${python.branch} \
+            ${destroot}${frameworks_dir}/Python.framework/Versions/${python.branch}/bin/frescobaldi \
+            --target-dir ${app_macos} --no-copy-deps --target-name Frescobaldi
+    
+        file copy ${filespath}/frescobaldi.icns ${app_resources}
+    
+        file mkdir ${destroot}/Applications
+        file copy ${app_bundle} ${destroot}${applications_dir}       
+    }
+}
