@@ -8,7 +8,7 @@ PortGroup               active_variants 1.1
 set original_name       python-poppler-qt4
 name                    py-${original_name}
 version                 0.16.3
-revision                1
+revision                2
 python.versions         26 27
 python.default_version  27
 maintainers             gmail.com:davide.liessi openmaintainer
@@ -34,4 +34,17 @@ if {$subport != $name} {
     require_active_variants poppler {qt4 quartz}
 
     depends_build-append    port:pkgconfig
+}
+
+post-destroot {
+    set doc_dir ${destroot}${prefix}/share/doc/${subport}
+    xinstall -d ${doc_dir}
+    xinstall -m 644 -W ${worksrcpath} \
+        ChangeLog \
+        LICENSE \
+        README \
+        ${doc_dir}
+    set examples_dir ${destroot}${prefix}/share/examples/${subport}
+    xinstall -d ${examples_dir}
+    xinstall -m 644 -W ${worksrcpath} demo.py ${examples_dir}
 }

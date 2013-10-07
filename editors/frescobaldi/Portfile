@@ -6,6 +6,7 @@ PortGroup           python 1.0
 PortGroup           github 1.0
 
 github.setup        wbsoft frescobaldi 2.0.10 v
+revision            1
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -76,7 +77,16 @@ post-destroot {
         file mkdir ${man_dir}
         file copy ${worksrcpath}/frescobaldi.1 ${man_dir}
     }
-
+    
+    set doc_dir ${destroot}${prefix}/share/doc/${subport}
+    xinstall -d ${doc_dir}
+    xinstall -m 644 -W ${worksrcpath} \
+        COPYING \
+        ChangeLog \
+        README \
+        THANKS \
+        ${doc_dir}
+    
     if {[variant_isset app]} {
         set app_bundle      ${worksrcpath}/Frescobaldi.app
         set app_contents    ${app_bundle}/Contents
