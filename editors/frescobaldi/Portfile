@@ -62,7 +62,7 @@ subport frescobaldi-devel {
     
     checksums           rmd160  52d3061b7cc2d25890e8daba690f8c5e739fd655 \
                         sha256  3142529180c1ee38322972dfaa9b75188300570d376076895d14733abc033844
-
+    
     variant app description {Make application bundle} {
         depends_build-append    port:py${python.default_version}-cx_Freeze
     }
@@ -74,8 +74,10 @@ subport frescobaldi-devel {
 post-destroot {
     if {${subport} ne "frescobaldi"} {
         set man_dir ${destroot}${prefix}/share/man/man1
-        file mkdir ${man_dir}
-        file copy ${worksrcpath}/frescobaldi.1 ${man_dir}
+        xinstall -d ${man_dir}
+        xinstall -m 644 -W ${worksrcpath} \
+            frescobaldi.1 \
+            ${man_dir}
     }
     
     set doc_dir ${destroot}${prefix}/share/doc/${subport}
@@ -88,13 +90,10 @@ post-destroot {
         ${doc_dir}
     
     if {[variant_isset app]} {
-        set app_bundle      ${worksrcpath}/Frescobaldi.app
-        set app_contents    ${app_bundle}/Contents
+        set app_contents    ${destroot}${applications_dir}/Frescobaldi.app/Contents
         set app_macos       ${app_contents}/MacOS
         set app_resources   ${app_contents}/Resources
-    
-        file mkdir ${app_macos}
-    
+        
         set infopliststrings \
 "/* Localized versions of Info.plist keys */
 
@@ -104,12 +103,13 @@ CFBundleDisplayName = \"Frescobaldi\";
 NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
 "
         foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
-            file mkdir ${app_resources}/${l}.lproj
-            set fileID [ open "${app_resources}/${l}.lproj/InfoPlist.strings" "w" ]
+            set app_lproj ${app_resources}/${l}.lproj
+            xinstall -d ${app_lproj}
+            set fileID [ open "${app_lproj}/InfoPlist.strings" "w" ]
             puts -nonewline ${fileID} ${infopliststrings}
             close ${fileID}
         }
-    
+        
         set infoplist \
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
@@ -139,14 +139,12 @@ NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
         set fileID [ open "${app_contents}/Info.plist" "w" ]
         puts -nonewline ${fileID} ${infoplist}
         close ${fileID}
-    
+        
+        xinstall -d ${app_macos}
         exec ${prefix}/bin/cxfreeze-${python.branch} \
             ${destroot}${frameworks_dir}/Python.framework/Versions/${python.branch}/bin/frescobaldi \
             --target-dir ${app_macos} --no-copy-deps --target-name Frescobaldi
-    
-        file copy ${filespath}/frescobaldi.icns ${app_resources}
-    
-        file mkdir ${destroot}/Applications
-        file copy ${app_bundle} ${destroot}${applications_dir}       
+        
+        xinstall -m 644 -W ${filespath} frescobaldi.icns ${app_resources}
     }
 }
