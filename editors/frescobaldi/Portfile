@@ -49,7 +49,7 @@ while FluidSynth is running."
 
 
 subport frescobaldi-devel {
-    github.setup        wbsoft frescobaldi f57720d2c5de15bb8813e6977cde587326d9a43a
+    github.setup        wbsoft frescobaldi 79276bf6123d7191f6d620bbcf25e796d2908eb6
     
     # github.setup sets the port name and this interferes badly with subports
     # (setting name to ${subport} doesn't work well)
@@ -58,10 +58,11 @@ subport frescobaldi-devel {
     set PortInfo(name) ${subport}
     
     conflicts           frescobaldi
-    version             20131003
+    version             20131008
+    revision            0
     
-    checksums           rmd160  52d3061b7cc2d25890e8daba690f8c5e739fd655 \
-                        sha256  3142529180c1ee38322972dfaa9b75188300570d376076895d14733abc033844
+    checksums           rmd160  665257bc014f0e73a03d1252cd7cb1d95ac6d885 \
+                        sha256  e11da3eb0e4e2ed907f7bc65faa7779289284ef1f084516af185e3ce043ff5e6
     
     variant app description {Make application bundle} {
         depends_build-append    port:py${python.default_version}-cx_Freeze
