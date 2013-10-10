@@ -51,9 +51,11 @@ while FluidSynth is running."
 subport frescobaldi-devel {
     github.setup        wbsoft frescobaldi 79276bf6123d7191f6d620bbcf25e796d2908eb6
     
-    # github.setup sets the port name and this interferes badly with subports
-    # (setting name to ${subport} doesn't work well)
-    # (see the definition of proc subport in portutil.tcl)
+    # github.setup sets the port name to frescobaldi, overriding the subport name.
+    # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
+    # 'Error: Portfile directory frescobaldi does not match port name frescobaldi-devel'.
+    # With 'PortInfo(name) ${subport}' (see the definition of 'proc subport' in portutil.tcl)
+    # the Portfile works correctly and the error disappears.
     global PortInfo
     set PortInfo(name) ${subport}
     
