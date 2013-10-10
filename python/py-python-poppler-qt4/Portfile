@@ -10,7 +10,6 @@ name                    py-${original_name}
 version                 0.16.3
 revision                2
 python.versions         26 27
-python.default_version  27
 maintainers             gmail.com:davide.liessi openmaintainer
 description             Python binding for Poppler-Qt4
 long_description        ${original_name} is a Python binding for Poppler-Qt4.
