@@ -5,8 +5,7 @@ PortSystem          1.0
 PortGroup           python 1.0
 PortGroup           github 1.0
 
-github.setup        wbsoft frescobaldi 2.0.10 v
-revision            1
+github.setup        wbsoft frescobaldi 2.0.11 v
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -18,8 +17,8 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-checksums           rmd160  197dc2ac14d6570fd2f5a9e04ea50a5a4a3e8b73 \
-                    sha256  1e8bfe2911057b066e5af54e685d786153956b436a8a6d6d50868c50c180049f
+checksums           rmd160  5033eef310d5b68de3951cf07517416436f47cb7 \
+                    sha256  478177a1292e1232df7fb11cae3a28e67af2186191ad1f976e390029e331139c
 
 build {}
 
@@ -49,7 +48,7 @@ while FluidSynth is running."
 
 
 subport frescobaldi-devel {
-    github.setup        wbsoft frescobaldi c806f38b7e8c960a5fe024fa620d1206306b8398
+    github.setup        wbsoft frescobaldi eb01bab1becf860f246f7ee8103fba44526ee3c6
     
     # github.setup sets the port name to frescobaldi, overriding the subport name.
     # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
@@ -60,28 +59,26 @@ subport frescobaldi-devel {
     set PortInfo(name) ${subport}
     
     conflicts           frescobaldi
-    version             20131015
-    revision            0
+    version             20131016
     
-    checksums           rmd160  65d0e2d1fedbb3319fef1e01a55dd491928a8655 \
-                        sha256  01dd7d0a7835b8cd9e294380dd9e0b240e29ae12baaaec4d77fac662c7fcc2fb
-    
-    variant app description {Make application bundle} {
-        depends_build-append    port:py${python.default_version}-cx_Freeze
-    }
-    
-    default_variants    +app
+    checksums           rmd160  681fcd31f9cab03daaa07b2495ad7bef803c0b31 \
+                        sha256  b9c8091a082279fccc1b02dfbeb3b9d3367d46c982d2f65c4f2116f0797b2090
 }
 
 
+variant app description {Make application bundle} {
+    depends_build-append    port:py${python.default_version}-cx_Freeze
+}
+
+default_variants    +app
+
+
 post-destroot {
-    if {${subport} ne "frescobaldi"} {
-        set man_dir ${destroot}${prefix}/share/man/man1
-        xinstall -d ${man_dir}
-        xinstall -m 644 -W ${worksrcpath} \
-            frescobaldi.1 \
-            ${man_dir}
-    }
+    set man_dir ${destroot}${prefix}/share/man/man1
+    xinstall -d ${man_dir}
+    xinstall -m 644 -W ${worksrcpath} \
+        frescobaldi.1 \
+        ${man_dir}
     
     set doc_dir ${destroot}${prefix}/share/doc/${subport}
     xinstall -d ${doc_dir}
