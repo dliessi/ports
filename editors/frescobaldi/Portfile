@@ -69,6 +69,14 @@ post-destroot {
     xinstall -d ${share_destroot}${man_dir}
     ln -s ${share_python}${man_dir}/frescobaldi.1 ${share_destroot}${man_dir}
     
+    set desktop_dir /applications
+    xinstall -d ${share_destroot}${desktop_dir}
+    ln -s ${share_python}${desktop_dir}/frescobaldi.desktop ${share_destroot}${desktop_dir}
+    
+    set icons_dir /icons/hicolor/scalable/apps
+    xinstall -d ${share_destroot}${icons_dir}
+    ln -s ${share_python}${icons_dir}/frescobaldi.svg ${share_destroot}${icons_dir}
+    
     set doc_dir ${share_destroot}/doc/${subport}
     xinstall -d ${doc_dir}
     xinstall -m 644 -W ${worksrcpath} \
