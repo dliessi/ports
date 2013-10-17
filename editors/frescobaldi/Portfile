@@ -64,9 +64,7 @@ default_variants    +app
 post-destroot {
     set man_dir ${destroot}${prefix}/share/man/man1
     xinstall -d ${man_dir}
-    xinstall -m 644 -W ${worksrcpath} \
-        frescobaldi.1 \
-        ${man_dir}
+    ln -s ${python.prefix}/share/man/man1/frescobaldi.1 ${man_dir}
     
     set doc_dir ${destroot}${prefix}/share/doc/${subport}
     xinstall -d ${doc_dir}
