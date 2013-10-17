@@ -84,7 +84,7 @@ How to install Frescobaldi
 * In the Terminal,
  + if you want latest stable version: `sudo port install frescobaldi`;
  + if you want latest development version: `sudo port install frescobaldi-devel`
-* frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi-2.7`; both frescobaldi and frescobaldi-devel include an application bundle that is installed as `/Applications/MacPorts/Frescobaldi.app`.
+* frescobaldi(-devel) is installed as `/opt/local/bin/frescobaldi`; both frescobaldi and frescobaldi-devel include an application bundle that is installed as `/Applications/MacPorts/Frescobaldi.app`.
 
 **N.B.** If you had previously installed Frescobaldi following Philippe Massart's [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide), you may get an error about existing files not belonging to registered ports when MacPorts tries to activate py27-python-poppler-qt4 or frescobaldi(-devel).
 In order to solve this problem, launch the installation command again with the `-f` (force) option, i.e. `sudo port -f install frescobaldi(-devel)`.
