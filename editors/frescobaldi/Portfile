@@ -62,11 +62,14 @@ variant app description {Make application bundle} {
 default_variants    +app
 
 post-destroot {
-    set man_dir ${destroot}${prefix}/share/man/man1
-    xinstall -d ${man_dir}
-    ln -s ${python.prefix}/share/man/man1/frescobaldi.1 ${man_dir}
+    set share_destroot ${destroot}${prefix}/share
+    set share_python ${python.prefix}/share
     
-    set doc_dir ${destroot}${prefix}/share/doc/${subport}
+    set man_dir /man/man1
+    xinstall -d ${share_destroot}${man_dir}
+    ln -s ${share_python}${man_dir}/frescobaldi.1 ${share_destroot}${man_dir}
+    
+    set doc_dir ${share_destroot}/doc/${subport}
     xinstall -d ${doc_dir}
     xinstall -m 644 -W ${worksrcpath} \
         COPYING \
