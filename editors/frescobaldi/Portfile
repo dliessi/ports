@@ -64,19 +64,19 @@ default_variants    +app
 post-destroot {
     set share_destroot ${destroot}${prefix}/share
     set share_python ${python.prefix}/share
-    
+
     set man_dir /man/man1
     xinstall -d ${share_destroot}${man_dir}
     ln -s ${share_python}${man_dir}/frescobaldi.1 ${share_destroot}${man_dir}
-    
+
     set desktop_dir /applications
     xinstall -d ${share_destroot}${desktop_dir}
     ln -s ${share_python}${desktop_dir}/frescobaldi.desktop ${share_destroot}${desktop_dir}
-    
+
     set icons_dir /icons/hicolor/scalable/apps
     xinstall -d ${share_destroot}${icons_dir}
     ln -s ${share_python}${icons_dir}/frescobaldi.svg ${share_destroot}${icons_dir}
-    
+
     set doc_dir ${share_destroot}/doc/${subport}
     xinstall -d ${doc_dir}
     xinstall -m 644 -W ${worksrcpath} \
@@ -85,12 +85,12 @@ post-destroot {
         README \
         THANKS \
         ${doc_dir}
-    
+
     if {[variant_isset app]} {
         set app_contents    ${destroot}${applications_dir}/Frescobaldi.app/Contents
         set app_macos       ${app_contents}/MacOS
         set app_resources   ${app_contents}/Resources
-        
+
         set infopliststrings \
 "/* Localized versions of Info.plist keys */
 
@@ -106,7 +106,7 @@ NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
             puts -nonewline ${fileID} ${infopliststrings}
             close ${fileID}
         }
-        
+
         set infoplist \
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
@@ -136,12 +136,12 @@ NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
         set fileID [ open "${app_contents}/Info.plist" "w" ]
         puts -nonewline ${fileID} ${infoplist}
         close ${fileID}
-        
+
         xinstall -d ${app_macos}
         exec ${prefix}/bin/cxfreeze-${python.branch} \
             ${destroot}${python.prefix}/bin/frescobaldi \
             --target-dir ${app_macos} --no-copy-deps --target-name Frescobaldi
-        
+
         xinstall -m 644 -W ${filespath} frescobaldi.icns ${app_resources}
     }
 }
