@@ -130,7 +130,7 @@ NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
         
         xinstall -d ${app_macos}
         exec ${prefix}/bin/cxfreeze-${python.branch} \
-            ${destroot}${frameworks_dir}/Python.framework/Versions/${python.branch}/bin/frescobaldi \
+            ${destroot}${python.prefix}/bin/frescobaldi \
             --target-dir ${app_macos} --no-copy-deps --target-name Frescobaldi
         
         xinstall -m 644 -W ${filespath} frescobaldi.icns ${app_resources}
