@@ -92,51 +92,14 @@ post-destroot {
         set app_macos       ${app_contents}/MacOS
         set app_resources   ${app_contents}/Resources
 
-        set infopliststrings \
-"/* Localized versions of Info.plist keys */
-
-CFBundleName = \"Frescobaldi\";
-CFBundleDisplayName = \"Frescobaldi\";
-
-NSHumanReadableCopyright = \"Copyright © 2008-2012 Wilbert Berendsen.\";
-"
         foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
             set app_lproj ${app_resources}/${l}.lproj
             xinstall -d ${app_lproj}
-            set fileID [ open "${app_lproj}/InfoPlist.strings" "w" ]
-            puts -nonewline ${fileID} ${infopliststrings}
-            close ${fileID}
+            xinstall -m 644 -W ${filespath} InfoPlist.strings ${app_lproj}
         }
 
-        set infoplist \
-"<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
-<plist version=\"1.0\">
-<dict>
-    <key>CFBundlePackageType</key>
-    <string>APPL</string>
-    <key>CFBundleIdentifier</key>
-    <string>org.frescobaldi.frescobaldi</string>
-    <key>CFBundleSignature</key>
-    <string>????</string>
-    <key>CFBundleExecutable</key>
-    <string>Frescobaldi</string>
-    <key>CFBundleDisplayName</key>
-    <string>Frescobaldi</string>
-    <key>CFBundleVersion</key>
-    <string>${version}</string>
-    <key>CFBundleName</key>
-    <string>Frescobaldi</string>
-    <key>CFBundleIconFile</key>
-    <string>frescobaldi.icns</string>
-    <key>NSHumanReadableCopyright</key>
-    <string>Copyright © 2008-2012 Wilbert Berendsen.</string>
-</dict>
-</plist>
-"
-        set fileID [ open "${app_contents}/Info.plist" "w" ]
-        puts -nonewline ${fileID} ${infoplist}
-        close ${fileID}
+        xinstall -m 644 -W ${filespath} Info.plist ${app_contents}
+        reinplace "s|%VERSION%|${version}|g" ${app_contents}/Info.plist
 
         xinstall -d ${app_macos}
         exec ${prefix}/bin/cxfreeze-${python.branch} \
