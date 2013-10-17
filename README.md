@@ -69,6 +69,7 @@ cd /opt/dliessi/ports
 sudo git pull
 sudo portindex
 ```
+
 * then upgrade MacPorts as usual, with `sudo port selfupdate` or `sudo port sync`, and then `sudo port upgrade outdated`.
 
 I should keep these Portfiles reasonably up to date with newly released versions.
