@@ -62,11 +62,17 @@ MacPorts cannot automatically install dependencies with variants other than the 
 
 ### Upgrade
 
-I should keep these Portfiles reasonably up to date, so when there is something new you should just need to
-* `sudo git pull` in the repository directory,
-* perform step 3 (`sudo portindex`), and
-* `sudo port upgrade outdated`.
+To upgrade your MacPorts installations:
+* first upgrade the Portfile repository, in the Terminal
+```
+cd /opt/dliessi/ports
+sudo git pull
+sudo portindex
+```
+* then upgrade MacPorts as usual, with `sudo port selfupdate` or `sudo port sync`, and then `sudo port upgrade outdated`.
 
+I should keep these Portfiles reasonably up to date with newly released versions.
+I'll try to update frescobaldi-devel when new features are introduced or bugs are fixed.
 If time passes and I do not upgrade the Portfiles, please open a new issue [here on GitHub](https://github.com/dliessi/ports/issues).
 
 
