@@ -22,7 +22,7 @@ checksums           rmd160  5033eef310d5b68de3951cf07517416436f47cb7 \
                     sha256  478177a1292e1232df7fb11cae3a28e67af2186191ad1f976e390029e331139c
 
 subport frescobaldi-devel {
-    github.setup        wbsoft frescobaldi eb01bab1becf860f246f7ee8103fba44526ee3c6
+    github.setup        wbsoft frescobaldi 48648463dc86195cb0245b99117f9352b50e1581
     
     # github.setup sets the port name to frescobaldi, overriding the subport name.
     # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
@@ -33,10 +33,11 @@ subport frescobaldi-devel {
     set PortInfo(name) ${subport}
     
     conflicts           frescobaldi
-    version             20131016
+    version             20131021
+    revision            0
     
-    checksums           rmd160  681fcd31f9cab03daaa07b2495ad7bef803c0b31 \
-                        sha256  b9c8091a082279fccc1b02dfbeb3b9d3367d46c982d2f65c4f2116f0797b2090
+    checksums           rmd160  d493a23f5c506d9631b8bb2533b5e125fec0f2b0 \
+                        sha256  09cc193476e6995066fa87a5deffa5e1285d78a5d6929a7925be44ed929f3aa6
 }
 
 build {}
