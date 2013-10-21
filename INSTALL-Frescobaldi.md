@@ -1,6 +1,8 @@
 How to install Frescobaldi on Mac OS X
 =====
 
+[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md)]
+
 *****
 **IMPORTANT NOTE**  
 If you had a previous installation of Frescobaldi that you installed either following Philippe Massart’s [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide) or using Davide Liessi’s [Portfile repository](https://github.com/dliessi/ports), please read the [Migration instructions](#migration-instructions).

@@ -1,6 +1,8 @@
 How to use this repository
 =====
 
+[[English](USAGE.md), [italiano](USAGE.it.md)]
+
 If you want to use this repository, you may clone it, insert its path in your MacPorts installation's `sources.conf` file and construct the port index in the repository's root directory.
 
 Here is what I recommend.

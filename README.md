@@ -1,6 +1,8 @@
 dliessi/ports
 =====
 
+[[English](README.md), [italiano](README.it.md)]
+
 Personal MacPorts Portfile repository
 
 *****
