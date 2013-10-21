@@ -61,6 +61,9 @@ frescobaldi and frescobaldi-devel can be installed on the same system, but they 
 If you want to install both of them, start with one, then deactivate it with `sudo port deactivate frescobaldi(-devel)` and then install the other.
 When you want to switch between the two versions, you just need to deactivate the currently active version (you can see which one is active with `port installed name:frescobaldi`) and activate the other (`sudo port activate frescobaldi(-devel)`).
 
+If you want a working MIDI playback in Frescobaldi, you must have Qsynth running and you must select the correct MIDI port in Frescobaldi’s settings.
+The correct port is automatically selected if you launch Qsynth before Frescobaldi.
+
 
 Upgrade Frescobaldi
 -----
