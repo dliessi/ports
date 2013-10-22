@@ -23,14 +23,6 @@ checksums           rmd160  54c46b02db8946d00315c5fa194ca97785e7bd96 \
                     sha256  2f7fb0f37151e2896b63c8c785aa3b5911d10c735d492e5fb95aae7c9cced64b
 
 subport frescobaldi-devel {
-    # github.setup also sets 'name frescobaldi', overriding the subport name.
-    # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
-    # 'Error: Portfile directory frescobaldi does not match port name frescobaldi-devel'.
-    # With 'set PortInfo(name) ${subport}' (see the definition of 'proc subport' in
-    # portutil.tcl) the Portfile works correctly and the error disappears.
-    global PortInfo
-    set PortInfo(name) ${subport}
-
     conflicts           frescobaldi
     version             20140609
     set dev_version     2.0.16
