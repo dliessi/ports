@@ -34,6 +34,7 @@ subport frescobaldi-devel {
 
     conflicts           frescobaldi
     version             20131021
+    set dev_version     2.0.12
     revision            0
 
     checksums           rmd160  d493a23f5c506d9631b8bb2533b5e125fec0f2b0 \
@@ -59,7 +60,7 @@ if {![variant_isset python26]} {
 }
 
 variant app description {Make application bundle} {
-    depends_build-append    port:py${python.default_version}-cx_Freeze
+    depends_build-append    port:py${python.default_version}-py2app
 }
 default_variants    +app
 
@@ -89,9 +90,20 @@ post-destroot {
         ${doc_dir}
 
     if {[variant_isset app]} {
-        set app_contents    ${destroot}${applications_dir}/Frescobaldi.app/Contents
-        set app_macos       ${app_contents}/MacOS
-        set app_resources   ${app_contents}/Resources
+        if {${name} eq ${subport}} {
+            set bundle_version    ${version}
+        } else {
+            set bundle_version    ${dev_version}-dev-${version}
+        }
+
+        xinstall -m 644 -W ${filespath} mac-app.py ${workpath}
+        reinplace "s|%%VERSION%%|${bundle_version}|g" ${workpath}/mac-app.py
+        reinplace "s|%%PREFIX%%|${prefix}|g" ${workpath}/mac-app.py
+
+        system "cd ${workpath} && ${prefix}/bin/python${python.branch} mac-app.py py2app"
+
+        set app_resources   ${workpath}/dist/Frescobaldi.app/Contents/Resources
+        xinstall -m 644 -W ${filespath} frescobaldi.icns ${app_resources}
 
         foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
             set app_lproj ${app_resources}/${l}.lproj
@@ -99,15 +111,7 @@ post-destroot {
             xinstall -m 644 -W ${filespath} InfoPlist.strings ${app_lproj}
         }
 
-        xinstall -m 644 -W ${filespath} Info.plist ${app_contents}
-        reinplace "s|%VERSION%|${version}|g" ${app_contents}/Info.plist
-
-        xinstall -d ${app_macos}
-        exec ${prefix}/bin/cxfreeze-${python.branch} \
-            ${destroot}${python.prefix}/bin/frescobaldi \
-            --target-dir ${app_macos} --no-copy-deps --target-name Frescobaldi
-
-        xinstall -m 644 -W ${filespath} frescobaldi.icns ${app_resources}
+        file copy ${workpath}/dist/Frescobaldi.app ${destroot}${applications_dir}
     }
 }
 
