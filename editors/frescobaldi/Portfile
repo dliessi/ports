@@ -6,7 +6,7 @@ PortGroup           python 1.0
 PortGroup           github 1.0
 
 github.setup        wbsoft frescobaldi 2.0.11 v
-revision            1
+revision            2
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -22,7 +22,7 @@ checksums           rmd160  5033eef310d5b68de3951cf07517416436f47cb7 \
                     sha256  478177a1292e1232df7fb11cae3a28e67af2186191ad1f976e390029e331139c
 
 subport frescobaldi-devel {
-    github.setup        wbsoft frescobaldi 48648463dc86195cb0245b99117f9352b50e1581
+    github.setup        wbsoft frescobaldi fe104aa2c97f668a1a810d65bb7d6dd661d7f7dd
 
     # github.setup also sets 'name frescobaldi', overriding the subport name.
     # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
@@ -33,12 +33,12 @@ subport frescobaldi-devel {
     set PortInfo(name) ${subport}
 
     conflicts           frescobaldi
-    version             20131021
+    version             20131101
     set dev_version     2.0.12
     revision            0
 
-    checksums           rmd160  d493a23f5c506d9631b8bb2533b5e125fec0f2b0 \
-                        sha256  09cc193476e6995066fa87a5deffa5e1285d78a5d6929a7925be44ed929f3aa6
+    checksums           rmd160  acaab952f50862b8f9fe9213d80e6f9fe0acb372 \
+                        sha256  1e241a3c064b98e06c07410e3832d3804a975118834fb468669a57328ad0dbd9
 }
 
 build {}
@@ -61,6 +61,15 @@ if {![variant_isset python26]} {
 
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-py2app
+
+    if {${name} eq ${subport}} {
+        patchfiles    patch-frescobaldi_app-main.py.diff
+        post-extract {
+            xinstall -m 644 -W ${filespath} \
+                file_open_eventhandler.py \
+                ${worksrcpath}/frescobaldi_app
+        }
+    }
 }
 default_variants    +app
 
