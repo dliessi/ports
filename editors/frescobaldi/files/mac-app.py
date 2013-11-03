@@ -25,19 +25,16 @@ plist = dict(
             'CFBundleTypeExtensions': ['ly', 'lyi', 'ily'],
             'CFBundleTypeName':'LilyPond file',
             'CFBundleTypeRole':'Editor',
-            'LSItemContentTypes': ['org.lilypond.lilypond']
         },
         {
             'CFBundleTypeExtensions': ['tex', 'lytex', 'latex'],
             'CFBundleTypeName':'LaTeX file',
             'CFBundleTypeRole':'Editor',
-            'LSItemContentTypes': ['org.tug.tex']
         },
         {
             'CFBundleTypeExtensions': ['docbook', 'lyxml'],
             'CFBundleTypeName':'DocBook file',
             'CFBundleTypeRole':'Editor',
-            'LSItemContentTypes': ['org.docbook.docbook']
         },
         {
             'CFBundleTypeExtensions': ['html'],
@@ -55,51 +52,17 @@ plist = dict(
             'CFBundleTypeExtensions': ['itely', 'tely', 'texi', 'texinfo'],
             'CFBundleTypeName':'Texinfo file',
             'CFBundleTypeRole':'Editor',
-            'LSItemContentTypes': ['org.gnu.texinfo']
         },
         {
             'CFBundleTypeExtensions': ['scm'],
             'CFBundleTypeName':'Scheme file',
             'CFBundleTypeRole':'Editor',
-            'LSItemContentTypes': ['org.scheme.scheme']
         },
         {
             'CFBundleTypeExtensions': ['*'],
             'CFBundleTypeName':'Text file',
             'CFBundleTypeRole':'Editor',
             'LSItemContentTypes': ['public.text']
-        }
-    ],
-    UTExportedTypeDeclarations    = [
-        {
-            'UTTypeTagSpecification': { 'public.filename-extension': ['ly', 'lyi', 'ily'] },
-            'UTTypeDescription':'LilyPond file',
-            'UTTypeIdentifier': ['org.lilypond.lilypond'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
-        },
-        {
-            'UTTypeTagSpecification': { 'public.filename-extension': ['tex', 'lytex', 'latex'] },
-            'UTTypeDescription':'LaTeX file',
-            'UTTypeIdentifier': ['org.tug.tex'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
-        },
-        {
-            'UTTypeTagSpecification': { 'public.filename-extension': ['docbook', 'lyxml'] },
-            'UTTypeDescription':'DocBook file',
-            'UTTypeIdentifier': ['org.docbook.docbook'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
-        },
-        {
-            'UTTypeTagSpecification': { 'public.filename-extension': ['itely', 'tely', 'texi', 'texinfo'] },
-            'UTTypeDescription':'Texinfo file',
-            'UTTypeIdentifier': ['org.gnu.texinfo'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
-        },
-        {
-            'UTTypeTagSpecification': { 'public.filename-extension': ['scm'] },
-            'UTTypeDescription':'Scheme file',
-            'UTTypeIdentifier': ['org.scheme.scheme'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
         }
     ]
 )
