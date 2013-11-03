@@ -6,7 +6,7 @@ PortGroup           python 1.0
 PortGroup           github 1.0
 
 github.setup        wbsoft frescobaldi 2.0.11 v
-revision            2
+revision            3
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -35,7 +35,7 @@ subport frescobaldi-devel {
     conflicts           frescobaldi
     version             20131101
     set dev_version     2.0.12
-    revision            0
+    revision            1
 
     checksums           rmd160  acaab952f50862b8f9fe9213d80e6f9fe0acb372 \
                         sha256  1e241a3c064b98e06c07410e3832d3804a975118834fb468669a57328ad0dbd9
