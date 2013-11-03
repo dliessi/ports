@@ -75,31 +75,31 @@ plist = dict(
             'UTTypeTagSpecification': { 'public.filename-extension': ['ly', 'lyi', 'ily'] },
             'UTTypeDescription':'LilyPond file',
             'UTTypeIdentifier': ['org.lilypond.lilypond'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public-source-code']
+            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
         },
         {
             'UTTypeTagSpecification': { 'public.filename-extension': ['tex', 'lytex', 'latex'] },
             'UTTypeDescription':'LaTeX file',
             'UTTypeIdentifier': ['org.tug.tex'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public-source-code']
+            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
         },
         {
             'UTTypeTagSpecification': { 'public.filename-extension': ['docbook', 'lyxml'] },
             'UTTypeDescription':'DocBook file',
             'UTTypeIdentifier': ['org.docbook.docbook'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public-source-code']
+            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
         },
         {
             'UTTypeTagSpecification': { 'public.filename-extension': ['itely', 'tely', 'texi', 'texinfo'] },
             'UTTypeDescription':'Texinfo file',
             'UTTypeIdentifier': ['org.gnu.texinfo'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public-source-code']
+            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
         },
         {
             'UTTypeTagSpecification': { 'public.filename-extension': ['scm'] },
             'UTTypeDescription':'Scheme file',
             'UTTypeIdentifier': ['org.scheme.scheme'],
-            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public-source-code']
+            'UTTypeConformsTo': ['public.text', 'public.plain-text', 'public.source-code']
         }
     ]
 )
