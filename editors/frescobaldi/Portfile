@@ -5,8 +5,9 @@ PortSystem          1.0
 PortGroup           python 1.0
 PortGroup           github 1.0
 
-github.setup        wbsoft frescobaldi 2.0.11 v
-revision            3
+github.setup        wbsoft frescobaldi e7e3b25bf83f8a27a4759ee70428eaf8b3810c0c
+version             2.0.11
+revision            4
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -18,11 +19,11 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-checksums           rmd160  5033eef310d5b68de3951cf07517416436f47cb7 \
-                    sha256  478177a1292e1232df7fb11cae3a28e67af2186191ad1f976e390029e331139c
+checksums           rmd160  4c2b972c20d470d01d13a7e2b5ab37fc032948fb \
+                    sha256  b9ae5263982f39114e8e785474e4e4d80aea54f938bd08e562d0b72b8e3c8c0e
 
 subport frescobaldi-devel {
-    github.setup        wbsoft frescobaldi fe104aa2c97f668a1a810d65bb7d6dd661d7f7dd
+    github.setup        wbsoft frescobaldi 2a50b1033695350416fe0c2a2e605a9d74b3265a
 
     # github.setup also sets 'name frescobaldi', overriding the subport name.
     # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
@@ -33,12 +34,12 @@ subport frescobaldi-devel {
     set PortInfo(name) ${subport}
 
     conflicts           frescobaldi
-    version             20131101
+    version             20131104
     set dev_version     2.0.12
-    revision            1
+    revision            0
 
-    checksums           rmd160  acaab952f50862b8f9fe9213d80e6f9fe0acb372 \
-                        sha256  1e241a3c064b98e06c07410e3832d3804a975118834fb468669a57328ad0dbd9
+    checksums           rmd160  a1d45ccde2aa445bc9284dc9a50da973bcb90a3d \
+                        sha256  ccd868a9d019679bc11cdc2dfc41591e861ead50c044bc476189487d54062b7e
 }
 
 build {}
@@ -61,15 +62,6 @@ if {![variant_isset python26]} {
 
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-py2app
-
-    if {${name} eq ${subport}} {
-        patchfiles    patch-frescobaldi_app-main.py.diff
-        post-extract {
-            xinstall -m 644 -W ${filespath} \
-                file_open_eventhandler.py \
-                ${worksrcpath}/frescobaldi_app
-        }
-    }
 }
 default_variants    +app
 
@@ -112,7 +104,7 @@ post-destroot {
         system "cd ${workpath} && ${prefix}/bin/python${python.branch} mac-app.py py2app"
 
         set app_resources   ${workpath}/dist/Frescobaldi.app/Contents/Resources
-        xinstall -m 644 -W ${filespath} frescobaldi.icns ${app_resources}
+        xinstall -m 644 -W ${worksrcpath}/macosx/icons frescobaldi.icns ${app_resources}
 
         foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
             set app_lproj ${app_resources}/${l}.lproj
