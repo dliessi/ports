@@ -54,7 +54,7 @@ Scegli uno dei casi seguenti.
   Per avviare Frescobaldi clicca due volte sull’applicazione `/Applications/MacPorts/Frescobaldi.app` o inserisci `/opt/local/bin/frescobaldi` nel Terminale.
 
 * **“Voglio contribuire allo sviluppo di Frescobaldi”**: inserisci `sudo port install depof:frescobaldi git-core` nel Terminale.  
-  Ora Git e le dipendenze di Frescobaldi sono installati nel tuo sistema, perciò ti basta solo clonare il [repository Git di Frescobaldi](https://github.com/wbsoft/frescobaldi) e iniziare a lavorarci!
+  Ora Git e le dipendenze di Frescobaldi sono installati nel tuo sistema, perciò ti basta solo clonare il [repository Git di Frescobaldi](https://github.com/wbsoft/frescobaldi) e iniziare a lavorarci!  
   **N.B.** Le dipendenze di Frescobaldi sono state installate attraverso MacPorts, quindi per eseguire Frescobaldi devi usare la versione di Python installata da MacPorts (`/opt/local/bin/python2.7`) e non quella di Mac OS X (`/usr/bin/python`).
 
 L’ultimo tipo di installazione può coesistere con ciascuna delle prime due.
