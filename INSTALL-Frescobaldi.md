@@ -100,7 +100,7 @@ The directory `/Applications/frescobaldi` and the Platypus-generated application
 
 Due to a couple of changes in the Portfiles submitted to MacPorts, you will need to uninstall and reinstall py-python-poppler-qt4 and frescobaldi(-devel).
 
-1. Enter `sudo port uninstall name:frescobaldi name:python-poppler-qt4` in the Terminal.
+1. Enter `sudo port uninstall installed and \( name:frescobaldi name:python-poppler-qt4 \)` in the Terminal.
 
 2. Open the `sources.conf` file in your favorite text editor; I'll use nano as an example.
    1. Enter `sudo nano /opt/local/etc/macports/sources.conf` in the Terminal.
