@@ -1,7 +1,7 @@
 How to install Frescobaldi on Mac OS X
 =====
 
-[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md)]
+[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [Français](INSTALL-Frescobaldi.fr.md)]
 
 *****
 **IMPORTANT NOTE**  
