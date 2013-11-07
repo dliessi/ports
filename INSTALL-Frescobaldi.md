@@ -1,7 +1,7 @@
 How to install Frescobaldi on Mac OS X
 =====
 
-[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [Français](INSTALL-Frescobaldi.fr.md)]
+[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [français](INSTALL-Frescobaldi.fr.md)]
 
 *****
 **IMPORTANT NOTE**  
@@ -102,11 +102,11 @@ Due to a couple of changes in the Portfiles submitted to MacPorts, you will need
 
 1. Enter `sudo port uninstall installed and \( name:frescobaldi name:python-poppler-qt4 \)` in the Terminal.
 
-2. Open the `sources.conf` file in your favorite text editor; I'll use nano as an example.
+2. Open the `sources.conf` file in your favorite text editor; I’ll use nano as an example.
    1. Enter `sudo nano /opt/local/etc/macports/sources.conf` in the Terminal.
    2. Delete the line beginning with `file://` that you previously inserted (in a typical installation of MacPorts, it will be the only line beginning with `file://` in that file).
    3. Save the file and exit the editor (if you use nano: ctrl-O to save, enter to confirm the file name, ctrl-X to exit).
 
-3. You may delete the Portfile repository directory, even though it doesn't interfere with the installation.
+3. You may delete the Portfile repository directory, even though it doesn’t interfere with the installation.
 
 4. Follow the instructions in [Install Frescobaldi](#install-frescobaldi).

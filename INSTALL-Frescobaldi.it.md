@@ -1,7 +1,7 @@
 Come installare Frescobaldi in Mac OS X
 =====
 
-[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [Français](INSTALL-Frescobaldi.fr.md)]
+[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [français](INSTALL-Frescobaldi.fr.md)]
 
 *****
 **NOTA IMPORTANTE**  
@@ -61,7 +61,7 @@ L’ultimo tipo di installazione può coesistere con ciascuna delle prime due.
 
 frescobaldi e frescobaldi-devel possono essere installati nello stesso sistema, ma non possono essere attivi nello stesso momento.
 Se vuoi installarli entrambi, inizia con uno dei due, poi disattivalo con `sudo port deactivate frescobaldi(-devel)` e quindi installa l’altro.
-Quando vuoi passare da uno all'altro, ti basta disattivare la versione attualmente attiva (puoi sapere qual è con `port installed name:frescobaldi`) e attivare l’altra (`sudo port activate frescobaldi(-devel)`).
+Quando vuoi passare da uno all’altro, ti basta disattivare la versione attualmente attiva (puoi sapere qual è con `port installed name:frescobaldi`) e attivare l’altra (`sudo port activate frescobaldi(-devel)`).
 
 Se vuoi che la riproduzione MIDI in Frescobaldi funzioni, Qsynth deve essere avviato e devi scegliere la porta MIDI corretta nelle preferenze di Frescobaldi.
 La porta corretta è scelta automaticamente se avvii Qsynth prima di avviare Frescobaldi.
