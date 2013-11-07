@@ -1,21 +1,21 @@
 Comment installer Frescobaldi sous Mac OS X
 =====
 
-[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [Français]{INSTALL-Frescobaldi.fr.md}]
+[[English](INSTALL-Frescobaldi.md), [italiano](INSTALL-Frescobaldi.it.md), [Français](INSTALL-Frescobaldi.fr.md)]
 
 *****
 **REMARQUE IMPORTANTE**  
-Si vous aviez précédemment installé Frescobaldi en suivant le [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide) de Philippe Massart ou le [Portfile repository](https://github.com/dliessi/ports) de Davide Liessi, veuillez suivre les [Instructions de migration](#migration-instructions).
+Si vous aviez précédemment installé Frescobaldi en suivant le [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide) de Philippe Massart ou le [Portfile repository](https://github.com/dliessi/ports) de Davide Liessi, veuillez suivre les [Instructions de migration](#instructions-de-migration).
 *****
 
 
 Table des matières
 -----
 
-* [Préparer votre système pour l'installation](#prepare-your-machine-for-the-installation)
-* [Installer Frescobaldi](#install-frescobaldi)
-* [Mettre à jour Frescobaldi](#upgrade-frescobaldi)
-* [Instructions de migration](#migration-instructions)
+* [Préparer votre système pour l'installation](#preparer-votre-syst%C3%A8me-pour-linstallation)
+* [Installer Frescobaldi](#installer-frescobaldi)
+* [Mettre à jour Frescobaldi](#mettre-%C3%A0-jour-frescobaldi)
+* [Instructions de migration](#instructions-de-migration)
 
 
 Preparer votre système pour l'installation
@@ -70,7 +70,7 @@ Le port correct est automatiquement sélectionné si vous lancez Qsynth avant Fr
 Mettre à jour Frescobaldi
 -----
 
-Quand vous désirez mettre à jour Frescobaldi(ou, de façon générale, votre installation MacPorts), entrez dans le Terminal
+Quand vous désirez mettre à jour Frescobaldi (ou, de façon générale, votre installation MacPorts), entrez dans le Terminal
 
 ```
 sudo port selfupdate
@@ -78,21 +78,21 @@ sudo port upgrade outdated
 ```
 
 La première ligne met à jour Macports lui-même ainsi que le dépôt de Portfile, la seconde met à jour les ports "périmés".
-Avant d'entrer la seconde ligne, vous pouvez obtenir la liste des ports "périmés"" avec `port outdated`.
+Avant d'entrer la seconde ligne, vous pouvez obtenir la liste des ports "périmés" avec `port outdated`.
 
 
 Instructions de migration
 -----
 
 Vous avez déjà installé Frescobaldi en suivant le [Frescobaldi Mac OS X install guide](https://github.com/wbsoft/frescobaldi/wiki/Frescobaldi-Mac-OS-X-install-guide) de Philippe Massart ou le [Portfile repository](https://github.com/dliessi/ports) de Davide Liessi?
-Dans ce cas, vous pouvez ignorer la section [Préparer votre système pour l'installation](#prepare-your-machine-for-the-installation) et continuer avec l'une des sections suivantes.
+Dans ce cas, vous pouvez ignorer la section [Préparer votre système pour l'installation](#preparer-votre-syst%C3%A8me-pour-linstallation) et continuer avec l'une des sections suivantes.
 
 Les réglages de Frescobaldi seront conservés malgré le processus de migration.
 Cependant, ils peuvent devenir inaccessible à *l'anciennent installation* si vous ne l'avez pas mise à jour dernièrement, suite à une modification dans la gestion des réglages de Frescobaldi.
 
 ### Migrer depuis une installation basée sur le “Frescobaldi Mac OS X install guide” de Philippe Massart
 
-Suivez les instructions de la section [Installer Frescobaldi](#install-frescobaldi) à une différence près: vous devez insérer `-f` entre `sudo port` et `install` dans la commande choisie (ex.:  `sudo port install frescobaldi` devient `sudo port -f install frescobaldi`).
+Suivez les instructions de la section [Installer Frescobaldi](#installer-frescobaldi) à une différence près: vous devez insérer `-f` entre `sudo port` et `install` dans la commande choisie (ex.:  `sudo port install frescobaldi` devient `sudo port -f install frescobaldi`).
 
 Le dossier `/Applications/frescobaldi` et le lanceur généré par Platypus ne devraient pas interférer avec la nouvelle configuration, mais vous pouvez les effacer pour éviter toute confusion.
 
@@ -109,4 +109,4 @@ Suite à plusieurs modifications dans les Portfiles soumis à MacPorts, vous dev
 
 3. Vous pouvez supprimer le dossier du dépôt Portfile, bien qu'il n'interfère pas avec l'installation.
 
-4. Suivez les instructions dans la section [Installer Frescobaldi](#install-frescobaldi).
+4. Suivez les instructions dans la section [Installer Frescobaldi](#installer-frescobaldi).
