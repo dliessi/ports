@@ -15,7 +15,7 @@ Vedi [USAGE.it.md](USAGE.it.md) per informazioni su come usare questo repository
 
 Portfiles disponibili:
 * [frescobaldi](http://www.frescobaldi.org/) @2.0.11
-* frescobaldi-devel @20131104
+* frescobaldi-devel @20131126
 * [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.16.3
 
 Dovrei mantenere questi Portfile ragionevolmente aggiornati alle nuove versioni rilasciate.
