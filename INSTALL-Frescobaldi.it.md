@@ -30,7 +30,7 @@ Prepara la tua macchina per l’installazione
    sudo port upgrade outdated
    ```
    
-   La prima riga aggiorna la tua installazione di MacPorts, la seconda aggiorna i port installati, la terza installa poppler (una dipendenza di Frescobaldi) con le varianti corrette.
+   La prima riga aggiorna la tua installazione di MacPorts, la seconda aggiorna i port installati.
 
 3. Se vuoi il supporto MIDI in Frescobaldi
    1. inserisci `sudo port install fluidsynth` nel Terminale per installare FluidSynth (un sintetizzatore basato su SoundFont)
