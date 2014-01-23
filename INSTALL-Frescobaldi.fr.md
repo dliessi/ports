@@ -28,7 +28,6 @@ Preparer votre système pour l’installation
    ```
    sudo port selfupdate
    sudo port upgrade outdated
-   sudo port install poppler +quartz +qt4
    ```
    
    La première ligne met à jour votre installation MacPorts, la seconde met à jour vos ports, la troisième installe poppler (une dépendance de Frescobaldi) avec les variantes correctes.

@@ -28,7 +28,6 @@ Prepare your machine for the installation
    ```
    sudo port selfupdate
    sudo port upgrade outdated
-   sudo port install poppler +quartz +qt4
    ```
    
    The first line updates your MacPorts installation, the second upgrades your ports, the third installs poppler (a dependency of Frescobaldi) with the correct variants.
