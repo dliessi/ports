@@ -6,7 +6,7 @@ dliessi/ports
 Personal MacPorts Portfile repository
 
 *****
-**Do you want to install Frescobaldi on Mac OS X? Please read [INSTALL-Frescobaldi.md](INSTALL-Frescobaldi.md).**
+**Do you want to install Frescobaldi on Mac OS X? Please read [the instructions in Frescobaldi’s wiki](https://github.com/wbsoft/frescobaldi/wiki/How-to-install-Frescobaldi-on-Mac-OS-X).**
 *****
 
 See [USAGE.md](USAGE.md) for information about how to use this repository.
