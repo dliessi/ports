@@ -33,9 +33,6 @@ Let's assume that you have a working [MacPorts installation](http://www.macports
 
 Now your MacPorts installation should be able to see my Portfiles.
 
-**N.B.** py-python-poppler-qt4, a dependency of frescobaldi(-devel), depends on poppler with variants qt4 and quartz.
-MacPorts cannot automatically install dependencies with variants other than the default ones, so you should `sudo port install poppler +qt4 +quartz` before installing frescobaldi(-devel) or py-python-poppler-qt4.
-
 
 Upgrade
 -----
