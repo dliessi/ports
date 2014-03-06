@@ -34,8 +34,6 @@ subport frescobaldi-devel {
     set dev_version     2.0.14
 }
 
-build {}
-
 depends_run-append  port:portmidi
 
 variant python26 conflicts python27 description {Use Python 2.6} {
@@ -58,6 +56,20 @@ variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-py2app
 }
 default_variants    +app
+
+build {
+    if {[variant_isset app]} {
+        if {${name} eq ${subport}} {
+            set bundle_version    ${version}
+        } else {
+            set bundle_version    ${dev_version}-dev-${version}
+        }
+
+        system "cd ${worksrcpath} && \
+        ${prefix}/bin/python${python.branch} \
+        macosx/mac-app.py -f -v ${bundle_version} -s ${prefix}/bin/frescobaldi"
+    }
+}
 
 post-destroot {
     set share_destroot ${destroot}${prefix}/share
@@ -85,28 +97,7 @@ post-destroot {
         ${doc_dir}
 
     if {[variant_isset app]} {
-        if {${name} eq ${subport}} {
-            set bundle_version    ${version}
-        } else {
-            set bundle_version    ${dev_version}-dev-${version}
-        }
-
-        xinstall -m 644 -W ${filespath} mac-app.py ${workpath}
-        reinplace "s|%%VERSION%%|${bundle_version}|g" ${workpath}/mac-app.py
-        reinplace "s|%%PREFIX%%|${prefix}|g" ${workpath}/mac-app.py
-
-        system "cd ${workpath} && ${prefix}/bin/python${python.branch} mac-app.py py2app"
-
-        set app_resources   ${workpath}/dist/Frescobaldi.app/Contents/Resources
-        xinstall -m 644 -W ${worksrcpath}/macosx/icons frescobaldi.icns ${app_resources}
-
-        foreach l {cs de en es fr gl it nl pl pt ru tr uk} {
-            set app_lproj ${app_resources}/${l}.lproj
-            xinstall -d ${app_lproj}
-            xinstall -m 644 -W ${filespath} InfoPlist.strings ${app_lproj}
-        }
-
-        file copy ${workpath}/dist/Frescobaldi.app ${destroot}${applications_dir}
+        file copy ${worksrcpath}/dist/Frescobaldi.app ${destroot}${applications_dir}
     }
 }
 
