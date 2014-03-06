@@ -5,7 +5,7 @@ PortSystem          1.0
 PortGroup           python 1.0
 PortGroup           github 1.0
 
-github.setup        wbsoft frescobaldi 2.0.13 v
+github.setup        wbsoft frescobaldi 2.0.14 v
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
@@ -17,12 +17,10 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-checksums           rmd160  bf385c596e26e0c15b994b7b6bd4122711c5b9c4 \
-                    sha256  5b272a65a329fe32d986edb28afb6a7361773ff895b13f26e3207ab268e9b955
+checksums           rmd160  417b106fac9ddee155885838fde0e4dd6da22be2 \
+                    sha256  9718cb07597473ee0b6b62b573535e56b68f6a488cf06283c4ebe0c176745db6
 
 subport frescobaldi-devel {
-    github.setup        wbsoft frescobaldi 0cfa5eac4cdbe6136035cb3d2f9d5edf8f03d467
-
     # github.setup also sets 'name frescobaldi', overriding the subport name.
     # With 'name ${subport}', `port lint frescobaldi-devel` gives the following error:
     # 'Error: Portfile directory frescobaldi does not match port name frescobaldi-devel'.
@@ -32,11 +30,8 @@ subport frescobaldi-devel {
     set PortInfo(name) ${subport}
 
     conflicts           frescobaldi
-    version             20140211
+    version             20140306
     set dev_version     2.0.14
-
-    checksums           rmd160  640169b560cea175aa4d8d260dcb324948d65fb3 \
-                        sha256  79cfea2e2c43dd6a3e752eeeab1142d8ff186798662057d27c2f46c94a255682
 }
 
 build {}
