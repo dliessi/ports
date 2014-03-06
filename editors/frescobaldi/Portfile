@@ -19,8 +19,8 @@ platforms           darwin
 supported_archs     noarch
 license             GPL-2+
 
-checksums           rmd160  417b106fac9ddee155885838fde0e4dd6da22be2 \
-                    sha256  9718cb07597473ee0b6b62b573535e56b68f6a488cf06283c4ebe0c176745db6
+checksums           rmd160  2d1a18d3137e1e8cead8736dfc02984b3bfef6e3 \
+                    sha256  97e2582e14d565222bfe11cb677f81a67176ac96309c750d0c8f42f6ce1102f9
 
 subport frescobaldi-devel {
     # github.setup also sets 'name frescobaldi', overriding the subport name.
