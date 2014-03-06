@@ -10,8 +10,10 @@ conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
 description         A LilyPond sheet music text editor
-long_description    Frescobaldi is a LilyPond sheet music text editor. \
-                    It aims to be powerful, yet lightweight and easy to use.
+long_description    Frescobaldi is an advanced text editor \
+                    to edit LilyPond sheet music files. \
+                    Features include an integrated PDF preview \
+                    and a powerful Score Wizard.
 homepage            http://www.frescobaldi.org/
 platforms           darwin
 supported_archs     noarch
