@@ -67,9 +67,8 @@ build {
             set bundle_version    ${dev_version}-dev-${version}
         }
 
-        system "cd ${worksrcpath} && \
-        ${prefix}/bin/python${python.branch} \
-        macosx/mac-app.py -f -v ${bundle_version} -s ${prefix}/bin/frescobaldi"
+        system -W ${worksrcpath} "${prefix}/bin/python${python.branch} \
+            macosx/mac-app.py -f -v ${bundle_version} -s ${prefix}/bin/frescobaldi"
     }
 }
 
