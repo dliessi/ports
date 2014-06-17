@@ -56,6 +56,9 @@ if {![variant_isset python26]} {
 
 variant app description {Make application bundle} {
     depends_build-append    port:py${python.default_version}-py2app
+    if {[variant_isset python26]} {
+        depends_build-append    port:py${python.default_version}-argparse
+    }
 }
 default_variants    +app
 
