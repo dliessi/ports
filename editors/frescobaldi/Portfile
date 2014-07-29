@@ -25,7 +25,7 @@ checksums           rmd160  54c46b02db8946d00315c5fa194ca97785e7bd96 \
 subport frescobaldi-devel {
     conflicts           frescobaldi
     version             20140609
-    set dev_version     2.0.16
+    set devel_version   2.0.16
 }
 
 depends_run-append  port:portmidi
@@ -60,8 +60,8 @@ if {![variant_isset app]} {
 
 build {
     if {[variant_isset app]} {
-        if {[info exists dev_version]} {
-            set bundle_version    ${dev_version}-${version}
+        if {[info exists devel_version]} {
+            set bundle_version    ${devel_version}-${version}
         } else {
             set bundle_version    ${version}
         }
