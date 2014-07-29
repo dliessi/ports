@@ -60,10 +60,10 @@ if {![variant_isset app]} {
 
 build {
     if {[variant_isset app]} {
-        if {${name} eq ${subport}} {
-            set bundle_version    ${version}
+        if {[info exists dev_version]} {
+            set bundle_version    ${dev_version}-${version}
         } else {
-            set bundle_version    ${dev_version}-dev-${version}
+            set bundle_version    ${version}
         }
 
         system -W ${worksrcpath} "${prefix}/bin/python${python.branch} \
