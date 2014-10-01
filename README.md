@@ -16,7 +16,7 @@ See [USAGE.md](USAGE.md) for information about how to use this repository.
 Available Portfiles:
 * [frescobaldi](http://www.frescobaldi.org/) @2.0.16
 * frescobaldi-devel @20140727
-* [py-python-poppler-qt4](https://code.google.com/p/python-poppler-qt4/) @0.18.1
+* [py-python-poppler-qt4](https://github.com/wbsoft/python-poppler-qt4) @0.18.1
 
 I should keep these Portfiles reasonably up to date with newly released versions.
 I’ll update frescobaldi-devel as soon as I notice that a new feature is completed or a bug is fixed.
