@@ -7,7 +7,7 @@ If you want to use this repository, you may clone it, insert its path in your Ma
 
 Here is what I recommend.
 
-Let's assume that you have a working [MacPorts installation](http://www.macports.org/install.php) and that you have Git installed (you can install it through MacPorts entering `sudo port install git-core` in the Terminal).
+Let's assume that you have a working [MacPorts installation](http://www.macports.org/install.php) and that you have Git installed (you can install it through MacPorts entering `sudo port install git` in the Terminal).
 
 1. In the Terminal enter
    
