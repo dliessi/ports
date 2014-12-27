@@ -14,8 +14,8 @@ Vedi [USAGE.it.md](USAGE.it.md) per informazioni su come usare questo repository
 **N.B.** I branch diversi da `master` possono essere soggetti a operazioni di **riscrittura della storia**, perciò usali a tuo rischio e pericolo.
 
 Portfiles disponibili:
-* [frescobaldi](http://www.frescobaldi.org/) @2.0.16
-* frescobaldi-devel @20141001
+* [frescobaldi](http://www.frescobaldi.org/) @2.17.1
+* frescobaldi-devel @20141226
 * [py-ly](https://pypi.python.org/pypi/python-ly) @0.4
 * [py-python-poppler-qt4](https://github.com/wbsoft/python-poppler-qt4) @0.18.1
 
