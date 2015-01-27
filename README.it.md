@@ -18,7 +18,3 @@ Portfiles disponibili:
 * frescobaldi-devel @20150117
 * [py-ly](https://github.com/wbsoft/python-ly) @0.8
 * [py-poppler-qt4](https://github.com/wbsoft/python-poppler-qt4) @0.18.2
-
-Dovrei mantenere questi Portfile ragionevolmente aggiornati alle nuove versioni rilasciate.
-Aggiornerò frescobaldi-devel ogni volta che vedrò completata una nuova funzionalità o corretto un errore.
-Se passa del tempo e non aggiorno i Portfile, apri una richiesta [qui su GitHub](https://github.com/dliessi/ports/issues).
