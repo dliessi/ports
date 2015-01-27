@@ -19,6 +19,7 @@ long_description    The ${_name} package provides a Python library \
                     and a commandline tool that can be used to parse and \
                     manipulate LilyPond source files.
 
+homepage            https://github.com/wbsoft/${_name}
 master_sites        https://pypi.python.org/packages/source/${_n}/${_name}/
 distname            ${_name}-${version}
 
