@@ -29,6 +29,8 @@ checksums           md5     9232dbfbe1ac849c0c295988622829b7 \
 
 python.versions     27 34
 
+build {}
+
 livecheck.type  regex
 livecheck.url   [lindex ${master_sites} 0]
 livecheck.regex ">${_name}-(\\d+(\\.\\d+)+)\\${extract.suffix}<"
