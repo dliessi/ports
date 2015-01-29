@@ -6,6 +6,7 @@ PortGroup           python 1.0
 PortGroup           github 1.0
 
 github.setup        wbsoft frescobaldi 2.17.2 v
+revision            1
 conflicts           frescobaldi-devel
 categories          editors python
 maintainers         gmail.com:davide.liessi openmaintainer
