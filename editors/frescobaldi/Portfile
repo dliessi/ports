@@ -30,6 +30,9 @@ subport frescobaldi-devel {
 depends_run-append  port:portmidi
 
 python.default_version  27
+
+depends_lib-append      port:py${python.default_version}-ly
+
 # Can use either py*-pyqt4 or py*-pyqt4-devel.
 depends_run-append  path:share/py${python.default_version}-sip/PyQt4:py${python.default_version}-pyqt4 \
                     port:py${python.default_version}-poppler-qt4
