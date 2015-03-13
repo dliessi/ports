@@ -47,6 +47,8 @@ if {![variant_isset app]} {
     supported_archs     noarch
 }
 
+patchfiles          patch-setup.cfg.diff
+
 build {
     if {[variant_isset app]} {
         if {[info exists devel_version]} {
