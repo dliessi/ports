@@ -81,7 +81,7 @@ post-destroot {
     xinstall -m 644 -W ${worksrcpath} \
         COPYING \
         ChangeLog \
-        README \
+        README.md \
         THANKS \
         ${doc_dir}
 
