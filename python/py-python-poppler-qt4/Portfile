@@ -2,7 +2,6 @@
 # $Id$
 
 PortSystem          1.0
-PortGroup           python 1.0
 
 name                py-python-poppler-qt4
 version             0.18.2
