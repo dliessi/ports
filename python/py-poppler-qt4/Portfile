@@ -47,12 +47,10 @@ if {${name} ne ${subport}} {
         xinstall -d ${examples_dir}
         xinstall -m 644 -W ${worksrcpath} demo.py ${examples_dir}
     }
-}
 
-livecheck.type  regex
-livecheck.url   https://pypi.python.org/pypi/${_name}
-livecheck.regex ">${_name}-(\\d+(\\.\\d+)+)\\${extract.suffix}<"
-
-if {${name} ne ${subport}} {
     livecheck.type  none
+} else {
+    livecheck.type  regex
+    livecheck.url   https://pypi.python.org/pypi/${_name}
+    livecheck.regex ">${_name}-(\\d+(\\.\\d+)+)\\${extract.suffix}<"
 }
