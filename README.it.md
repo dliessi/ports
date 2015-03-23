@@ -16,5 +16,6 @@ Vedi [USAGE.it.md](USAGE.it.md) per informazioni su come usare questo repository
 Portfiles disponibili:
 * [frescobaldi](http://www.frescobaldi.org/) @2.18
 * frescobaldi-devel @20150307
+* [p5-file-keepass](http://search.cpan.org/dist/File-KeePass/) @2.03
 * [py-ly](https://github.com/wbsoft/python-ly) @0.9.1
 * [py-poppler-qt4](https://github.com/wbsoft/python-poppler-qt4) @0.24.0
