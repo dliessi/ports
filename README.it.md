@@ -3,19 +3,7 @@ dliessi/ports
 
 [[English](README.md), [italiano](README.it.md)]
 
-Repository personale di Portfile per MacPorts
+Questo era il mio repository personale di Portfile per MacPorts.
+Ora sviluppo i miei Portfile direttamente in un fork del [repository Git ufficiale di MacPorts](https://github.com/macports/macports-ports).
 
-*****
-**Vuoi installare Frescobaldi in Mac OS X? Leggi [le istruzioni nella wiki di Frescobaldi](https://github.com/wbsoft/frescobaldi/wiki/Come-installare-Frescobaldi-in-Mac-OS-X).**
-*****
-
-Vedi [USAGE.it.md](USAGE.it.md) per informazioni su come usare questo repository.
-
-**N.B.** I branch diversi da `master` possono essere soggetti a operazioni di **riscrittura della storia**, perciò usali a tuo rischio e pericolo.
-
-Portfiles disponibili:
-* [frescobaldi](http://www.frescobaldi.org/) @2.18
-* frescobaldi-devel @20150307
-* [p5-file-keepass](http://search.cpan.org/dist/File-KeePass/) @2.03
-* [py-ly](https://github.com/wbsoft/python-ly) @0.9.1
-* [py-poppler-qt4](https://github.com/wbsoft/python-poppler-qt4) @0.24.0
+Se usavi il mio repository e vuoi eliminare ogni riferimento ad esso nel tuo sistema, puoi rimuovere la tua copia locale di questo repository (`/opt/dliessi` nelle istruzioni che raccomandavo) e cancellare la riga corrispondente dal file `sources.conf` della tua installazione di MacPorts.
